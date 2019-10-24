@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+     <template id="report_journal_entry_document">
+        <t t-call="web.external_layout">
+            <t t-set="o" t-value="doc.with_context({'lang': 'ar_SY'})" />
+            <div class="page">
+                <center><h3><b><span t-esc="o.journal_id.name"/></b></h3></center>
+                <div class="row mt32 mb32">
+                    <div class="col-2">
+                        <strong>Entry Date:</strong> <br/>
+                        <span t-field="o.date" />
+                    </div>
+                    <div class="col-2">
+                        <strong>Entry Number:</strong> <br/>
+                        <span t-esc="o.name"/>
+                    </div>
+                    <div class="col-2">
+                        <strong>Date: </strong> <br/>
+                        <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%m/%d/%Y %H:%M:%S')"/>
+                    </div>
+                    <div class="col-2">
+                        <strong>Referance:</strong> <br/>
+                        <span t-esc="o.ref"/>
+                    </div>
+                    <div class="col-2">
+                        <strong>Posted:</strong> <br/>
+                        <span t-if="o.state == 'draft'">No</span> <span t-if="o.state != 'draft'">Yes</span>
+                    </div>
+                </div>
+
+                <table class="table table-condensed">
+                    <thead>
+                        <tr class="text-center" style="white-space:nowrap;">
+                            <th>Acc Number</th>
+                            <th>Acc Name</th>
+                            <th>Partner</th>
+                            <th>Analytic Account</th>
+                            <th>Debit</th>
+                            <th>Credit</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr t-foreach="o.line_ids.sorted(key=lambda m: m.id)" t-as="line" class="text-center" style="white-space:nowrap;">
+                            <td><span t-field="line.account_id.code"/></td>
+                            <td><span t-field="line.account_id.name"/></td>
+                            <td><span t-field="line.partner_id.name"/></td>
+                            <td><span t-field="line.analytic_account_id.name"/></td>
+                            <td><span t-field="line.debit"/></td>
+                            <td><span t-field="line.credit"/></td>
+                            <td><span t-field="line.name"/></td>
+                        </tr>
+                        <tr style="font-weight: bold; font-size:18px">
+                            <td style="background-color:#E8E8E8;">Total</td>
+                            <td style="background-color:#E8E8E8;"></td>
+                            <td style="background-color:#E8E8E8;"></td>
+                            <td style="background-color:#E8E8E8;">ــــــــــــــ</td>
+                            <td style="background-color:#E8E8E8;"><span t-field="o.amount"/></td>
+                            <td style="background-color:#E8E8E8;"><span t-field="o.amount"/></td>
+                            <td style="background-color:#E8E8E8;">ــــــــــــــ</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </t>
+    </template>
+
+    <template id="report_journal_entry">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="iwesabe_reports_journal_entry.report_journal_entry_document"/>
+            </t>
+        </t>
+    </template>
+
+    <report id="action_report_journal_entry"
+            model="account.move"
+            string="Journal Entries"
+            report_type="qweb-pdf"
+            name="iwesabe_reports_journal_entry.report_journal_entry"
+            file="iwesabe_reports_journal_entry.report_journal_entry"
+            attachment_use="True"
+    />
+</odoo>

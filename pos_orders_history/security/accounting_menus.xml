@@ -1,0 +1,12 @@
+<odoo>
+    <data noupdate="0">
+        <record id="group_menu_finance_payables" model="res.groups">
+            <field name="category_id" ref="base.module_category_usability"/>
+            <field name="name">Show Vendor Menu</field>
+        </record>
+        <record id="group_menu_action_account_payments_receivable" model="res.groups">
+            <field name="category_id" ref="base.module_category_usability"/>
+            <field name="name">Show payment customer Menu</field>
+        </record>
+    </data>
+</odoo>
