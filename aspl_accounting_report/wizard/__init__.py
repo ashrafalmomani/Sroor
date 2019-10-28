@@ -27,5 +27,6 @@ from . import account_report_partner_ledger
 from . import account_report
 from . import account_financial_report
 from . import general_ledger_wiz
+from . import customer_vendor_receivable
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

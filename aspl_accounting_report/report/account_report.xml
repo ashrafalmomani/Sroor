@@ -67,6 +67,16 @@
             name="aspl_accounting_report.general_ledger_template"
             file="aspl_accounting_report.general_ledger_template"
             />
+
+        <report
+            id="action_report_receivable_partner_balance"
+            model="res.partner"
+            string="Accounts Receivables/Payables"
+            menu="False"
+            report_type="qweb-pdf"
+            name="aspl_accounting_report.report_receivablepartnerbalance"
+            file="aspl_accounting_report.report_receivablepartnerbalance"
+        />
          
 
     </data>
