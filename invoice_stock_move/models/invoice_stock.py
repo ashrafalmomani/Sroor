@@ -104,13 +104,20 @@ class InvoiceStockMove(models.Model):
                 moves = order.invoice_line_ids.filtered(lambda r: r.product_id.type in ['product', 'consu'])._create_stock_moves_transfer(picking)
                 move_ids = moves._action_confirm()
                 move_ids._action_assign()
+
     @api.multi
     def action_invoice_open(self):
         super(InvoiceStockMove, self).action_invoice_open()
         if self.type in ('in_invoice', 'out_refund'):
-            self.action_stock_receive()
+            consu = False
+            for line in self.invoice_line_ids:
+                if line.product_id.type == 'consu':
+                    consu = True
+            if not consu:
+                self.action_stock_receive()
         else:
-            self.action_stock_transfer()
+            if not self.mo_ids:
+                self.action_stock_transfer()
 
     @api.multi
     def action_view_picking(self):
@@ -125,6 +132,7 @@ class InvoiceStockMove(models.Model):
             result['views'] = [(res and res.id or False, 'form')]
             result['res_id'] = pick_ids or False
         return result
+
 
 class SupplierInvoiceLine(models.Model):
     _inherit = 'account.invoice.line'
@@ -191,6 +199,3 @@ class SupplierInvoiceLine(models.Model):
             template['product_uom_qty'] = diff_quantity
             done += moves.create(template)
         return done
-
-
-

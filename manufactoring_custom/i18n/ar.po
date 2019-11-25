@@ -1,0 +1,1445 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* manufactoring_custom
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-11-21 15:41+0000\n"
+"PO-Revision-Date: 2019-11-21 15:41+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: manufactoring_custom
+#: selection:account.invoice.line,color_num:0
+#: selection:sale.order.line,color_num:0
+msgid " 2M1"
+msgstr ""
+
+#. module: manufactoring_custom
+#: selection:account.invoice.line,color_num:0
+#: selection:sale.order.line,color_num:0
+msgid " 2M2"
+msgstr ""
+
+#. module: manufactoring_custom
+#: selection:account.invoice.line,color_num:0
+#: selection:sale.order.line,color_num:0
+msgid " C2"
+msgstr ""
+
+#. module: manufactoring_custom
+#: selection:res.partner,is_doctor:0
+msgid " Not Doctor"
+msgstr "ليس دكتور"
+
+#. module: manufactoring_custom
+#: selection:account.invoice,status_order:0
+#: selection:sale.order,status_order:0
+msgid " Not Urgent"
+msgstr "غير مستعجل "
+
+#. module: manufactoring_custom
+#: model:ir.model.fields,field_description:manufactoring_custom.field_dental__order_date
+msgid " Order Date"
+msgstr "تاريخ الطلب"
+
+#. module: manufactoring_custom
+#: model:ir.model.fields,field_description:manufactoring_custom.field_dental__inv_count
+msgid "# Invoices"
+msgstr "الفواتير"
+
+#. module: manufactoring_custom
+#: model_terms:ir.ui.view,arch_db:manufactoring_custom.report_manufacturing_document
+msgid "#Teeth"
+msgstr " الاسنان"
+
+#. module: manufactoring_custom
+#: selection:account.invoice.line,color_num:0
+#: selection:sale.order.line,color_num:0
+msgid "0M1"
+msgstr ""
+
+#. module: manufactoring_custom
+#: selection:account.invoice.line,color_num:0
+#: selection:sale.order.line,color_num:0
+msgid "0M2"
+msgstr ""
+
+#. module: manufactoring_custom
+#: selection:account.invoice.line,color_num:0
+#: selection:sale.order.line,color_num:0
+msgid "0M3"
+msgstr ""
+
+#. module: manufactoring_custom
+#: selection:account.invoice.line,color_num:0
+#: selection:sale.order.line,color_num:0
+msgid "1M1"
+msgstr ""
+
+#. module: manufactoring_custom
+#: selection:account.invoice.line,color_num:0
+#: selection:sale.order.line,color_num:0
+msgid "1M2"
+msgstr ""
+
+#. module: manufactoring_custom
+#: selection:account.invoice.line,color_num:0
+#: selection:sale.order.line,color_num:0
+msgid "1M3"
+msgstr ""
+
+#. module: manufactoring_custom
+#: selection:account.invoice.line,color_num:0
+#: selection:sale.order.line,color_num:0
+msgid "2M0"
+msgstr ""
+
+#. module: manufactoring_custom
+#: selection:account.invoice.line,color_num:0
+#: selection:sale.order.line,color_num:0
+msgid "3M0"
+msgstr ""
+
+#. module: manufactoring_custom
+#: selection:account.invoice.line,color_num:0
+#: selection:sale.order.line,color_num:0
+msgid "3M1"
+msgstr ""
+
+#. module: manufactoring_custom
+#: selection:account.invoice.line,color_num:0
+#: selection:sale.order.line,color_num:0
+msgid "45"
+msgstr ""
+
+#. module: manufactoring_custom
+#: model:mail.template,body_html:manufactoring_custom.send_email
+msgid "<div style=\"margin: 0px; padding: 0px;\">\n"
+"                    <p style=\"margin: 0px; padding: 0px; font-size: 13px;\">\n"
+"                        Hello ${object.manager.name},<br/><br/>\n"
+"                        An invoice has been created on this order ${object.manager.company_id.name}\n"
+"                    </p>\n"
+"                </div>\n"
+"            "
+msgstr ""
+
+#. module: manufactoring_custom
+#: model_terms:ir.ui.view,arch_db:manufactoring_custom.report_saleorder_customized
+msgid "<span>Request Order # </span>"
+msgstr "<span>رقم تقديم الطلب </span>"
+
+#. module: manufactoring_custom
+#: selection:account.invoice.line,color_num:0
+#: selection:sale.order.line,color_num:0
+msgid "A1"
+msgstr ""
+
+#. module: manufactoring_custom
+#: selection:account.invoice.line,color_num:0
+#: selection:sale.order.line,color_num:0
+msgid "A2"
+msgstr ""
+
+#. module: manufactoring_custom
+#: selection:account.invoice.line,color_num:0
+#: selection:sale.order.line,color_num:0
+msgid "A3"
+msgstr ""
+
+#. module: manufactoring_custom
+#: selection:account.invoice.line,color_num:0
+#: selection:sale.order.line,color_num:0
+msgid "A3.5"
+msgstr ""
+
+#. module: manufactoring_custom
+#: selection:account.invoice.line,color_num:0
+#: selection:sale.order.line,color_num:0
+msgid "A4"
+msgstr ""
+
+#. module: manufactoring_custom
+#: model:ir.actions.act_window,name:manufactoring_custom.dental_view_acrylic_actions
+#: model:ir.ui.menu,name:manufactoring_custom.menu_manufacturing_orders_acrylic
+#: selection:section,section_type:0
+msgid "Acrylic"
+msgstr "الاكريل"
+
+#. module: manufactoring_custom
+#: model:ir.model.fields,field_description:manufactoring_custom.field_dental__message_needaction
+#: model:ir.model.fields,field_description:manufactoring_custom.field_section__message_needaction
+msgid "Action Needed"
+msgstr "إجراء مطلوب"
+
+#. module: manufactoring_custom
+#: model:ir.model.fields,field_description:manufactoring_custom.field_dental__activity_ids
+#: model:ir.model.fields,field_description:manufactoring_custom.field_section__activity_ids
+msgid "Activities"
+msgstr "الأنشطة"
+
+#. module: manufactoring_custom
+#: model:ir.model.fields,field_description:manufactoring_custom.field_dental__activity_state
+#: model:ir.model.fields,field_description:manufactoring_custom.field_section__activity_state
+msgid "Activity State"
+msgstr "حالة النشاط"
+
+#. module: manufactoring_custom
+#: model_terms:ir.ui.view,arch_db:manufactoring_custom.hr_contract_view_form_dental
+msgid "Allowances"
+msgstr "البدلات"
+
+#. module: manufactoring_custom
+#: model:mail.template,subject:manufactoring_custom.send_email
+msgid "An invoice has been created on this order ${object.manager.company_id.name}"
+msgstr ""
+
+#. module: manufactoring_custom
+#: model:ir.model.fields,field_description:manufactoring_custom.field_dental__message_attachment_count
+#: model:ir.model.fields,field_description:manufactoring_custom.field_section__message_attachment_count
+msgid "Attachment Count"
+msgstr "عدد المرفقات"
+
+#. module: manufactoring_custom
+#: selection:account.invoice.line,color_num:0
+#: selection:sale.order.line,color_num:0
+msgid "B1"
+msgstr ""
+
+#. module: manufactoring_custom
+#: selection:account.invoice.line,color_num:0
+#: selection:sale.order.line,color_num:0
+msgid "B2"
+msgstr ""
+
+#. module: manufactoring_custom
+#: selection:account.invoice.line,color_num:0
+#: selection:sale.order.line,color_num:0
+msgid "B3"
+msgstr ""
+
+#. module: manufactoring_custom
+#: selection:account.invoice.line,color_num:0
+#: selection:sale.order.line,color_num:0
+msgid "B4"
+msgstr ""
+
+#. module: manufactoring_custom
+#: model:ir.model.fields,field_description:manufactoring_custom.field_sale_order__bite
+msgid "Bite"
+msgstr ""
+
+#. module: manufactoring_custom
+#: model_terms:ir.ui.view,arch_db:manufactoring_custom.report_saleorder_customized
+msgid "Bite:"
+msgstr "Bite"
+
+#. module: manufactoring_custom
+#: selection:account.invoice.line,color_num:0
+#: selection:sale.order.line,color_num:0
+msgid "C1"
+msgstr ""
+
+#. module: manufactoring_custom
+#: selection:account.invoice.line,color_num:0
+#: selection:sale.order.line,color_num:0
+msgid "C3"
+msgstr ""
+
+#. module: manufactoring_custom
+#: selection:account.invoice.line,color_num:0
+#: selection:sale.order.line,color_num:0
+msgid "C4"
+msgstr ""
+
+#. module: manufactoring_custom
+#: selection:dental,state:0
+#: model_terms:ir.ui.view,arch_db:manufactoring_custom.dental_form_view
+#: model_terms:ir.ui.view,arch_db:manufactoring_custom.multi_shipment_confirm_view_wiz
+#: model_terms:ir.ui.view,arch_db:manufactoring_custom.view_section_wizard
+#: selection:section.wizard,check_quality_transfer:0
+msgid "Cancel"
+msgstr "إلغاء"
+
+#. module: manufactoring_custom
+#: model:ir.actions.act_window,name:manufactoring_custom.dental_view_cercon_actions
+#: model:ir.ui.menu,name:manufactoring_custom.menu_manufacturing_orders_cercon
+#: selection:section,section_type:0
+msgid "Cercon"
+msgstr "الزيركون"
+
+#. module: manufactoring_custom
+#: model:ir.model.fields,field_description:manufactoring_custom.field_section_wizard__check_quality_transfer
+msgid "Check Quality Transfer"
+msgstr "سبب التحويل"
+
+#. module: manufactoring_custom
+#: model_terms:ir.ui.view,arch_db:manufactoring_custom.view_section_wizard
+msgid "Choose Section"
+msgstr "اختر القسم"
+
+#. module: manufactoring_custom
+#: model_terms:ir.ui.view,arch_db:manufactoring_custom.multi_shipment_confirm_view_wiz
+msgid "Click on Confirm for confirm multi invoice."
+msgstr "انقر على  لتأكيد الفاتورة المتعددة"
+
+#. module: manufactoring_custom
+#: model:ir.model.fields,field_description:manufactoring_custom.field_dental__color_num
+#: model_terms:ir.ui.view,arch_db:manufactoring_custom.report_manufacturing_document
+msgid "Color Name"
+msgstr "اللون"
+
+#. module: manufactoring_custom
+#: model:ir.model.fields,field_description:manufactoring_custom.field_account_invoice_line__color_num
+#: model:ir.model.fields,field_description:manufactoring_custom.field_sale_order_line__color_num
+msgid "Color Num"
+msgstr "اللون"
+
+#. module: manufactoring_custom
+#: model_terms:ir.ui.view,arch_db:manufactoring_custom.report_invoice_customized
+#: model_terms:ir.ui.view,arch_db:manufactoring_custom.report_saleorder_customized
+msgid "Color Number"
+msgstr "رقم اللون"
+
+#. module: manufactoring_custom
+#: model:ir.model.fields,field_description:manufactoring_custom.field_res_partner__commercial_record
+#: model:ir.model.fields,field_description:manufactoring_custom.field_res_users__commercial_record
+msgid "Commercial Record"
+msgstr "السجل التجاري"
+
+#. module: manufactoring_custom
+#: model:ir.ui.menu,name:manufactoring_custom.menu_config
+msgid "Configuration"
+msgstr "الإعدادات"
+
+#. module: manufactoring_custom
+#: model_terms:ir.ui.view,arch_db:manufactoring_custom.dental_form_view
+#: model_terms:ir.ui.view,arch_db:manufactoring_custom.multi_shipment_confirm_view_wiz
+msgid "Confirm"
+msgstr "تأكيد"
+
+#. module: manufactoring_custom
+#: model:ir.model,name:manufactoring_custom.model_res_partner
+msgid "Contact"
+msgstr "جهة الاتصال"
+
+#. module: manufactoring_custom
+#: selection:section,section_type:0
+msgid "Controll and invoice"
+msgstr "الفحص و الفوترة"
+
+#. module: manufactoring_custom
+#: model:ir.actions.act_window,name:manufactoring_custom.create_invoice
+msgid "Create Invoices"
+msgstr "انشاء الفاتورة"
+
+#. module: manufactoring_custom
+#: model:ir.model.fields,field_description:manufactoring_custom.field_dental__create_uid
+#: model:ir.model.fields,field_description:manufactoring_custom.field_invoice_wizard__create_uid
+#: model:ir.model.fields,field_description:manufactoring_custom.field_mo_operations__create_uid
+#: model:ir.model.fields,field_description:manufactoring_custom.field_section__create_uid
+#: model:ir.model.fields,field_description:manufactoring_custom.field_section_wizard__create_uid
+#: model:ir.model.fields,field_description:manufactoring_custom.field_teeth_num__create_uid
+msgid "Created by"
+msgstr "أنشئ بواسطة"
+
+#. module: manufactoring_custom
+#: model:ir.model.fields,field_description:manufactoring_custom.field_dental__create_date
+#: model:ir.model.fields,field_description:manufactoring_custom.field_invoice_wizard__create_date
+#: model:ir.model.fields,field_description:manufactoring_custom.field_mo_operations__create_date
+#: model:ir.model.fields,field_description:manufactoring_custom.field_section__create_date
+#: model:ir.model.fields,field_description:manufactoring_custom.field_section_wizard__create_date
+#: model:ir.model.fields,field_description:manufactoring_custom.field_teeth_num__create_date
+msgid "Created on"
+msgstr "أنشئ في"
+
+#. module: manufactoring_custom
+#: model:ir.model.fields,field_description:manufactoring_custom.field_dental__current_section_id
+#: model_terms:ir.ui.view,arch_db:manufactoring_custom.report_manufacturing_document
+msgid "Current Section"
+msgstr "القسم الحالي"
+
+#. module: manufactoring_custom
+#: model:ir.model.fields,field_description:manufactoring_custom.field_dental__partner_id
+#: model_terms:ir.ui.view,arch_db:manufactoring_custom.report_manufacturing_document
+msgid "Customer"
+msgstr "العميل"
+
+#. module: manufactoring_custom
+#: model_terms:ir.ui.view,arch_db:manufactoring_custom.report_invoice_customized
+msgid "Customer Code:"
+msgstr "رمز العميل:"
+
+#. module: manufactoring_custom
+#: model_terms:ir.ui.view,arch_db:manufactoring_custom.report_saleorder_customized
+msgid "Customer Request #"
+msgstr "رقم طلب العميل"
+
+#. module: manufactoring_custom
+#: model:ir.model.fields,field_description:manufactoring_custom.field_account_invoice__customer_request_number
+#: model:ir.model.fields,field_description:manufactoring_custom.field_sale_order__customer_request_number
+msgid "Customer Requset Number"
+msgstr "رقم طلبية العميل"
+
+#. module: manufactoring_custom
+#: selection:account.invoice.line,color_num:0
+#: selection:sale.order.line,color_num:0
+msgid "D2"
+msgstr ""
+
+#. module: manufactoring_custom
+#: selection:account.invoice.line,color_num:0
+#: selection:sale.order.line,color_num:0
+msgid "D3"
+msgstr ""
+
+#. module: manufactoring_custom
+#: selection:account.invoice.line,color_num:0
+#: selection:sale.order.line,color_num:0
+msgid "D4"
+msgstr ""
+
+#. module: manufactoring_custom
+#: model:ir.model.fields,field_description:manufactoring_custom.field_dental__section_date
+#: model:ir.model.fields,field_description:manufactoring_custom.field_mo_operations__date
+#: model_terms:ir.ui.view,arch_db:manufactoring_custom.report_manufacturing_document
+msgid "Date"
+msgstr "التاريخ"
+
+#. module: manufactoring_custom
+#: model_terms:ir.ui.view,arch_db:manufactoring_custom.report_saleorder_customized
+msgid "Date Ordered"
+msgstr "تاريخ الطلب"
+
+#. module: manufactoring_custom
+#: model:ir.model.fields,field_description:manufactoring_custom.field_account_invoice_line__date_delivery
+#: model:ir.model.fields,field_description:manufactoring_custom.field_dental__date_delivery
+#: model:ir.model.fields,field_description:manufactoring_custom.field_sale_order_line__date_delivery
+#: model_terms:ir.ui.view,arch_db:manufactoring_custom.report_invoice_customized
+#: model_terms:ir.ui.view,arch_db:manufactoring_custom.report_manufacturing_document
+#: model_terms:ir.ui.view,arch_db:manufactoring_custom.report_saleorder_customized
+msgid "Delivery Date"
+msgstr "تاريخ التسليم"
+
+#. module: manufactoring_custom
+#: model:ir.model,name:manufactoring_custom.model_dental
+#: model:ir.model.fields,field_description:manufactoring_custom.field_mo_operations__dental_id
+msgid "Dental"
+msgstr "الاسنان"
+
+#. module: manufactoring_custom
+#: model:ir.model.fields,field_description:manufactoring_custom.field_dental__description
+#: model:ir.model.fields,field_description:manufactoring_custom.field_section__description
+#: model_terms:ir.ui.view,arch_db:manufactoring_custom.report_manufacturing_document
+msgid "Description"
+msgstr "الوصف"
+
+#. module: manufactoring_custom
+#: model:ir.model.fields,field_description:manufactoring_custom.field_dental__discount
+msgid "Discount"
+msgstr "خصم"
+
+#. module: manufactoring_custom
+#: model:ir.model.fields,field_description:manufactoring_custom.field_dental__display_name
+#: model:ir.model.fields,field_description:manufactoring_custom.field_invoice_wizard__display_name
+#: model:ir.model.fields,field_description:manufactoring_custom.field_mo_operations__display_name
+#: model:ir.model.fields,field_description:manufactoring_custom.field_section__display_name
+#: model:ir.model.fields,field_description:manufactoring_custom.field_section_wizard__display_name
+#: model:ir.model.fields,field_description:manufactoring_custom.field_teeth_num__display_name
+msgid "Display Name"
+msgstr "الاسم المعروض"
+
+#. module: manufactoring_custom
+#: selection:res.partner,is_doctor:0
+msgid "Doctor "
+msgstr "دكتور"
+
+#. module: manufactoring_custom
+#: model:ir.model.fields,field_description:manufactoring_custom.field_sale_order__partner_id
+msgid "Doctor Name"
+msgstr "اسم الدكتور"
+
+#. module: manufactoring_custom
+#: model:ir.model.fields,field_description:manufactoring_custom.field_account_invoice__doc_order_number
+#: model:ir.model.fields,field_description:manufactoring_custom.field_sale_order__doc_order_number
+msgid "Doctor Order #"
+msgstr "رقم طلب الدكتور"
+
+#. module: manufactoring_custom
+#: model:ir.model.fields,field_description:manufactoring_custom.field_sale_order__partner_address_phone
+msgid "Doctor Phone"
+msgstr "رقم التلفون"
+
+#. module: manufactoring_custom
+#: model:ir.actions.act_window,name:manufactoring_custom.dental_view_e-max_actions
+#: model:ir.ui.menu,name:manufactoring_custom.menu_manufacturing_orders_e-max
+#: selection:section,section_type:0
+msgid "E-Max"
+msgstr "اي -ماكس"
+
+#. module: manufactoring_custom
+#: model:ir.model,name:manufactoring_custom.model_hr_contract
+msgid "Employee Contract"
+msgstr "عقد الموظف"
+
+#. module: manufactoring_custom
+#: model:ir.model.fields,field_description:manufactoring_custom.field_sale_order__face_bow
+msgid "Face Bow"
+msgstr ""
+
+#. module: manufactoring_custom
+#: model_terms:ir.ui.view,arch_db:manufactoring_custom.report_saleorder_customized
+msgid "Face Bow:"
+msgstr "Face Bow"
+
+#. module: manufactoring_custom
+#: model:ir.model.fields,field_description:manufactoring_custom.field_dental__message_follower_ids
+#: model:ir.model.fields,field_description:manufactoring_custom.field_section__message_follower_ids
+msgid "Followers"
+msgstr "المتابعون"
+
+#. module: manufactoring_custom
+#: model:ir.model.fields,field_description:manufactoring_custom.field_dental__message_channel_ids
+#: model:ir.model.fields,field_description:manufactoring_custom.field_section__message_channel_ids
+msgid "Followers (Channels)"
+msgstr "المتابعون (القنوات)"
+
+#. module: manufactoring_custom
+#: model:ir.model.fields,field_description:manufactoring_custom.field_dental__message_partner_ids
+#: model:ir.model.fields,field_description:manufactoring_custom.field_section__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "المتابعون (الشركاء)"
+
+#. module: manufactoring_custom
+#: model:ir.model.fields,field_description:manufactoring_custom.field_hr_contract__food_allowance_value
+msgid "Food"
+msgstr "طعام"
+
+#. module: manufactoring_custom
+#: model:hr.salary.rule,name:manufactoring_custom.hr_rule_food
+msgid "Food Allowance"
+msgstr "بدل الطعام"
+
+#. module: manufactoring_custom
+#: model:ir.actions.act_window,name:manufactoring_custom.dental_view_gypsum_actions
+#: model:ir.ui.menu,name:manufactoring_custom.menu_manufacturing_orders_gypsum
+#: selection:section,section_type:0
+msgid "Gypsum"
+msgstr "الجبس"
+
+#. module: manufactoring_custom
+#: model:ir.model.fields,field_description:manufactoring_custom.field_account_invoice__has_mo_ids
+msgid "Has Mo"
+msgstr ""
+
+#. module: manufactoring_custom
+#: model:ir.model.fields,field_description:manufactoring_custom.field_hr_contract__housing_allowance_value
+msgid "Housing"
+msgstr "السكن"
+
+#. module: manufactoring_custom
+#: model:hr.salary.rule,name:manufactoring_custom.hr_rule_housing
+msgid "Housing Allowance"
+msgstr "بدل السكن"
+
+#. module: manufactoring_custom
+#: model:ir.model.fields,field_description:manufactoring_custom.field_dental__id
+#: model:ir.model.fields,field_description:manufactoring_custom.field_invoice_wizard__id
+#: model:ir.model.fields,field_description:manufactoring_custom.field_mo_operations__id
+#: model:ir.model.fields,field_description:manufactoring_custom.field_section__id
+#: model:ir.model.fields,field_description:manufactoring_custom.field_section_wizard__id
+#: model:ir.model.fields,field_description:manufactoring_custom.field_teeth_num__id
+msgid "ID"
+msgstr "المعرف"
+
+#. module: manufactoring_custom
+#: model:ir.model.fields,field_description:manufactoring_custom.field_section__first_section
+msgid "IS First Section?"
+msgstr "هل هو القسم الأول؟"
+
+#. module: manufactoring_custom
+#: model:ir.model.fields,help:manufactoring_custom.field_dental__message_unread
+#: model:ir.model.fields,help:manufactoring_custom.field_section__message_unread
+msgid "If checked new messages require your attention."
+msgstr "إذا كان محددًا، فهناك رسائل جديدة تحتاج لرؤيتها."
+
+#. module: manufactoring_custom
+#: model:ir.model.fields,help:manufactoring_custom.field_dental__message_needaction
+#: model:ir.model.fields,help:manufactoring_custom.field_section__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr "إذا كان محددًا، فهناك رسائل جديدة تحتاج لرؤيتها."
+
+#. module: manufactoring_custom
+#: model:ir.model.fields,help:manufactoring_custom.field_dental__message_has_error
+#: model:ir.model.fields,help:manufactoring_custom.field_section__message_has_error
+msgid "If checked, some messages have a delivery error."
+msgstr "إذا كان محددًا، فقد حدث خطأ في تسليم بعض الرسائل."
+
+#. module: manufactoring_custom
+#: model:ir.model.fields,field_description:manufactoring_custom.field_sale_order__impression
+msgid "Impression"
+msgstr ""
+
+#. module: manufactoring_custom
+#: model_terms:ir.ui.view,arch_db:manufactoring_custom.report_saleorder_customized
+msgid "Impression:"
+msgstr "Impression"
+
+#. module: manufactoring_custom
+#: selection:dental,state:0
+msgid "In Progress"
+msgstr " قيد التصنيع"
+
+#. module: manufactoring_custom
+#: model_terms:ir.ui.view,arch_db:manufactoring_custom.invoice_order_view_inherit
+#: model_terms:ir.ui.view,arch_db:manufactoring_custom.view_order_form_manufacturing
+msgid "Info Patient"
+msgstr "معلومات المريض"
+
+#. module: manufactoring_custom
+#: model:ir.actions.act_window,name:manufactoring_custom.act_mo_list
+#: model:ir.model,name:manufactoring_custom.model_account_invoice
+#: model:ir.model.fields,field_description:manufactoring_custom.field_dental__invoice_id
+#: model_terms:ir.ui.view,arch_db:manufactoring_custom.dental_form_view
+#: selection:section.wizard,check_quality_transfer:0
+msgid "Invoice"
+msgstr "الفاتورة"
+
+#. module: manufactoring_custom
+#: model_terms:ir.ui.view,arch_db:manufactoring_custom.report_invoice_customized
+msgid "Invoice Date:"
+msgstr "تاريخ الفاتورة:"
+
+#. module: manufactoring_custom
+#: model:ir.model,name:manufactoring_custom.model_account_invoice_line
+msgid "Invoice Line"
+msgstr "الفاتورة"
+
+#. module: manufactoring_custom
+#: model:ir.ui.menu,name:manufactoring_custom.menu_inv_manufacturing_orders
+msgid "Invoice Orders"
+msgstr "فوترة الطلبيات"
+
+#. module: manufactoring_custom
+#: model:ir.model.fields,field_description:manufactoring_custom.field_section__invoice_section
+#: model:ir.model.fields,field_description:manufactoring_custom.field_section_wizard__invoice_section
+msgid "Invoice Section?"
+msgstr "هل هو قسم الفوترة"
+
+#. module: manufactoring_custom
+#: selection:dental,state:0
+msgid "Invoiced"
+msgstr "تم الفوترة"
+
+#. module: manufactoring_custom
+#: model:ir.model.fields,field_description:manufactoring_custom.field_res_partner__is_doctor
+#: model:ir.model.fields,field_description:manufactoring_custom.field_res_users__is_doctor
+msgid "Is Doctor"
+msgstr "هل هو دكتور ؟"
+
+#. module: manufactoring_custom
+#: model:ir.model.fields,field_description:manufactoring_custom.field_dental__message_is_follower
+#: model:ir.model.fields,field_description:manufactoring_custom.field_section__message_is_follower
+msgid "Is Follower"
+msgstr "متابع"
+
+#. module: manufactoring_custom
+#: model:ir.model.fields,field_description:manufactoring_custom.field_dental____last_update
+#: model:ir.model.fields,field_description:manufactoring_custom.field_invoice_wizard____last_update
+#: model:ir.model.fields,field_description:manufactoring_custom.field_mo_operations____last_update
+#: model:ir.model.fields,field_description:manufactoring_custom.field_section____last_update
+#: model:ir.model.fields,field_description:manufactoring_custom.field_section_wizard____last_update
+#: model:ir.model.fields,field_description:manufactoring_custom.field_teeth_num____last_update
+msgid "Last Modified on"
+msgstr "آخر تعديل في"
+
+#. module: manufactoring_custom
+#: model:ir.model.fields,field_description:manufactoring_custom.field_dental__write_uid
+#: model:ir.model.fields,field_description:manufactoring_custom.field_invoice_wizard__write_uid
+#: model:ir.model.fields,field_description:manufactoring_custom.field_mo_operations__write_uid
+#: model:ir.model.fields,field_description:manufactoring_custom.field_section__write_uid
+#: model:ir.model.fields,field_description:manufactoring_custom.field_section_wizard__write_uid
+#: model:ir.model.fields,field_description:manufactoring_custom.field_teeth_num__write_uid
+msgid "Last Updated by"
+msgstr "آخر تحديث بواسطة"
+
+#. module: manufactoring_custom
+#: model:ir.model.fields,field_description:manufactoring_custom.field_dental__write_date
+#: model:ir.model.fields,field_description:manufactoring_custom.field_invoice_wizard__write_date
+#: model:ir.model.fields,field_description:manufactoring_custom.field_mo_operations__write_date
+#: model:ir.model.fields,field_description:manufactoring_custom.field_section__write_date
+#: model:ir.model.fields,field_description:manufactoring_custom.field_section_wizard__write_date
+#: model:ir.model.fields,field_description:manufactoring_custom.field_teeth_num__write_date
+msgid "Last Updated on"
+msgstr "آخر تحديث في"
+
+#. module: manufactoring_custom
+#: model:ir.ui.menu,name:manufactoring_custom.menu_manufacturing_mo
+msgid "MO order"
+msgstr "طلبات التصنيع "
+
+#. module: manufactoring_custom
+#: model:ir.model.fields,field_description:manufactoring_custom.field_dental__message_main_attachment_id
+#: model:ir.model.fields,field_description:manufactoring_custom.field_section__message_main_attachment_id
+msgid "Main Attachment"
+msgstr "المرفق الرئيسي"
+
+#. module: manufactoring_custom
+#: model:ir.model.fields,field_description:manufactoring_custom.field_section_wizard__manager
+#: model:res.groups,name:manufactoring_custom.manufacturing_group_manager
+msgid "Manager"
+msgstr "المدير"
+
+#. module: manufactoring_custom
+#: model:ir.actions.act_window,name:manufactoring_custom.sale_manufacturing_actions
+#: model:ir.module.category,name:manufactoring_custom.module_manufactoring_category
+#: model:ir.ui.menu,name:manufactoring_custom.menu_manufacturing
+#: model_terms:ir.ui.view,arch_db:manufactoring_custom.dental_tree
+msgid "Manufacturing"
+msgstr "التصنيع"
+
+#. module: manufactoring_custom
+#: model:ir.actions.report,name:manufactoring_custom.manufacturing_report
+#: model_terms:ir.ui.view,arch_db:manufactoring_custom.view_order_form_manufacturing
+msgid "Manufacturing Order"
+msgstr "طباعة طللبية التصنيع"
+
+#. module: manufactoring_custom
+#: code:addons/manufactoring_custom/models/sale_order.py:57
+#, python-format
+msgid "Manufacturing Orders"
+msgstr "'طلبيات التصنيع"
+
+#. module: manufactoring_custom
+#: model:ir.model.fields,field_description:manufactoring_custom.field_account_invoice__mo_ids
+msgid "Manufacturing orders"
+msgstr "طلبيات التصنيع"
+
+#. module: manufactoring_custom
+#: model_terms:ir.ui.view,arch_db:manufactoring_custom.view_order_form_manufacturing
+msgid "Materials To Return"
+msgstr "  مواد المستلمة"
+
+#. module: manufactoring_custom
+#: model:ir.model.fields,field_description:manufactoring_custom.field_dental__message_has_error
+#: model:ir.model.fields,field_description:manufactoring_custom.field_section__message_has_error
+msgid "Message Delivery error"
+msgstr "خطأ في تسليم الرسائل"
+
+#. module: manufactoring_custom
+#: model:ir.model.fields,field_description:manufactoring_custom.field_dental__message_ids
+#: model:ir.model.fields,field_description:manufactoring_custom.field_section__message_ids
+msgid "Messages"
+msgstr "الرسائل"
+
+#. module: manufactoring_custom
+#: model:ir.model.fields,field_description:manufactoring_custom.field_hr_contract__mobile_allowance_value
+msgid "Mobile"
+msgstr "الجوال"
+
+#. module: manufactoring_custom
+#: model:hr.salary.rule,name:manufactoring_custom.hr_rule_mobile
+msgid "Mobile Allowance"
+msgstr "بدل الجوال"
+
+#. module: manufactoring_custom
+#: model:ir.model.fields,field_description:manufactoring_custom.field_sale_order__model
+msgid "Model"
+msgstr "الكائن"
+
+#. module: manufactoring_custom
+#: model_terms:ir.ui.view,arch_db:manufactoring_custom.report_saleorder_customized
+msgid "Model:"
+msgstr "نموذج:"
+
+#. module: manufactoring_custom
+#: model:ir.model.fields,field_description:manufactoring_custom.field_sale_order__mother_model
+msgid "Mother Model"
+msgstr ""
+
+#. module: manufactoring_custom
+#: model_terms:ir.ui.view,arch_db:manufactoring_custom.report_saleorder_customized
+msgid "Mother Model:"
+msgstr "Mother Model"
+
+#. module: manufactoring_custom
+#: model:ir.actions.act_window,name:manufactoring_custom.action_multi_invoice_confirm
+msgid "Multi invoice Confirmation"
+msgstr "تاكيد الفوترة التمعددة"
+
+#. module: manufactoring_custom
+#: model:ir.model.fields,field_description:manufactoring_custom.field_mo_operations__name
+#: model:ir.model.fields,field_description:manufactoring_custom.field_section__name
+#: model_terms:ir.ui.view,arch_db:manufactoring_custom.report_manufacturing_document
+msgid "Name"
+msgstr "الاسم"
+
+#. module: manufactoring_custom
+#: model:ir.model.fields,field_description:manufactoring_custom.field_dental__activity_date_deadline
+#: model:ir.model.fields,field_description:manufactoring_custom.field_section__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr "الموعد النهائي للنشاط التالي"
+
+#. module: manufactoring_custom
+#: model:ir.model.fields,field_description:manufactoring_custom.field_dental__activity_summary
+#: model:ir.model.fields,field_description:manufactoring_custom.field_section__activity_summary
+msgid "Next Activity Summary"
+msgstr "ملخص النشاط التالي"
+
+#. module: manufactoring_custom
+#: model:ir.model.fields,field_description:manufactoring_custom.field_dental__activity_type_id
+#: model:ir.model.fields,field_description:manufactoring_custom.field_section__activity_type_id
+msgid "Next Activity Type"
+msgstr "نوع النشاط التالي"
+
+#. module: manufactoring_custom
+#: code:addons/manufactoring_custom/models/sale_order.py:36
+#, python-format
+msgid "No lines found to create manufacturing order."
+msgstr "لم يتم العثور على طلبات لإنشاء أمر التصنيع"
+
+#. module: manufactoring_custom
+#: selection:account.invoice.line,color_num:0
+#: selection:sale.order.line,color_num:0
+msgid "None"
+msgstr "لا يوجد"
+
+#. module: manufactoring_custom
+#: model:ir.model.fields,field_description:manufactoring_custom.field_dental__note
+#: model:ir.model.fields,field_description:manufactoring_custom.field_mo_operations__note
+#: model:ir.model.fields,field_description:manufactoring_custom.field_sale_order__noteother
+#: model:ir.model.fields,field_description:manufactoring_custom.field_sale_order_line__product_note
+#: model:ir.model.fields,field_description:manufactoring_custom.field_section_wizard__note
+#: model_terms:ir.ui.view,arch_db:manufactoring_custom.report_manufacturing_document
+#: model_terms:ir.ui.view,arch_db:manufactoring_custom.report_saleorder_customized
+msgid "Note"
+msgstr "ملاحظة"
+
+#. module: manufactoring_custom
+#: model:ir.model.fields,field_description:manufactoring_custom.field_dental__number
+msgid "Number"
+msgstr "الرقم"
+
+#. module: manufactoring_custom
+#: model:ir.model.fields,field_description:manufactoring_custom.field_account_invoice__num_file_patient
+#: model:ir.model.fields,field_description:manufactoring_custom.field_sale_order__num_file_patient
+msgid "Number File patient"
+msgstr "رقم ملف المريض"
+
+#. module: manufactoring_custom
+#: model:ir.model.fields,field_description:manufactoring_custom.field_dental__message_needaction_counter
+#: model:ir.model.fields,field_description:manufactoring_custom.field_section__message_needaction_counter
+msgid "Number of Actions"
+msgstr "عدد الإجراءات"
+
+#. module: manufactoring_custom
+#: model:ir.model.fields,field_description:manufactoring_custom.field_product_product__num_days
+#: model:ir.model.fields,field_description:manufactoring_custom.field_product_template__num_days
+msgid "Number of Days"
+msgstr "عدد الأيام"
+
+#. module: manufactoring_custom
+#: model:ir.model.fields,field_description:manufactoring_custom.field_dental__message_has_error_counter
+#: model:ir.model.fields,field_description:manufactoring_custom.field_section__message_has_error_counter
+msgid "Number of error"
+msgstr "عدد الأخطاء"
+
+#. module: manufactoring_custom
+#: model:ir.model.fields,help:manufactoring_custom.field_dental__message_needaction_counter
+#: model:ir.model.fields,help:manufactoring_custom.field_section__message_needaction_counter
+msgid "Number of messages which requires an action"
+msgstr "عدد الرسائل التي تتطلب إجراء"
+
+#. module: manufactoring_custom
+#: model:ir.model.fields,help:manufactoring_custom.field_dental__message_has_error_counter
+#: model:ir.model.fields,help:manufactoring_custom.field_section__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr "عدد الرسائل الحادث بها خطأ في التسليم"
+
+#. module: manufactoring_custom
+#: model:ir.model.fields,help:manufactoring_custom.field_dental__message_unread_counter
+#: model:ir.model.fields,help:manufactoring_custom.field_section__message_unread_counter
+msgid "Number of unread messages"
+msgstr "عدد الرسائل الجديدة"
+
+#. module: manufactoring_custom
+#: model:ir.model.fields,field_description:manufactoring_custom.field_dental__operation_ids
+msgid "Operation"
+msgstr "العملية"
+
+#. module: manufactoring_custom
+#: model:ir.model,name:manufactoring_custom.model_mo_operations
+msgid "Operations"
+msgstr "العمليات"
+
+#. module: manufactoring_custom
+#: model_terms:ir.ui.view,arch_db:manufactoring_custom.report_manufacturing_document
+msgid "Order Date"
+msgstr "التاريخ"
+
+#. module: manufactoring_custom
+#: model_terms:ir.ui.view,arch_db:manufactoring_custom.dental_form_view
+msgid "Order Information"
+msgstr "معلومات الطلب"
+
+#. module: manufactoring_custom
+#: model:ir.actions.server,name:manufactoring_custom.action_invoice_mo_orders
+#: model:ir.ui.menu,name:manufactoring_custom.menu_manufacturing_orders
+msgid "Orders"
+msgstr "الطلبيات"
+
+#. module: manufactoring_custom
+#: model:ir.model.fields,field_description:manufactoring_custom.field_hr_contract__other_allowance_value
+#: model:ir.model.fields,field_description:manufactoring_custom.field_sale_order__other
+msgid "Other"
+msgstr "اخرى"
+
+#. module: manufactoring_custom
+#: model:hr.salary.rule,name:manufactoring_custom.hr_rule_other
+msgid "Other Allowance"
+msgstr "بدلات اخرى"
+
+#. module: manufactoring_custom
+#: model_terms:ir.ui.view,arch_db:manufactoring_custom.report_saleorder_customized
+msgid "Other:"
+msgstr "Other"
+
+#. module: manufactoring_custom
+#: selection:dental,activity_state:0
+#: selection:section,activity_state:0
+msgid "Overdue"
+msgstr "متأخر"
+
+#. module: manufactoring_custom
+#: model:ir.model.fields,field_description:manufactoring_custom.field_account_invoice__patient_age
+#: model:ir.model.fields,field_description:manufactoring_custom.field_sale_order__patient_age
+#: model_terms:ir.ui.view,arch_db:manufactoring_custom.report_invoice_customized
+#: model_terms:ir.ui.view,arch_db:manufactoring_custom.report_saleorder_customized
+msgid "Patient Age"
+msgstr "عمر المريض"
+
+#. module: manufactoring_custom
+#: model_terms:ir.ui.view,arch_db:manufactoring_custom.report_invoice_customized
+#: model_terms:ir.ui.view,arch_db:manufactoring_custom.report_saleorder_customized
+msgid "Patient File Number"
+msgstr "رقم ملف المريض"
+
+#. module: manufactoring_custom
+#: model:ir.model.fields,field_description:manufactoring_custom.field_account_invoice__patient_name
+#: model:ir.model.fields,field_description:manufactoring_custom.field_sale_order__patient_name
+#: model_terms:ir.ui.view,arch_db:manufactoring_custom.report_invoice_customized
+#: model_terms:ir.ui.view,arch_db:manufactoring_custom.report_saleorder_customized
+msgid "Patient Name"
+msgstr "اسم المريض"
+
+#. module: manufactoring_custom
+#: model:ir.model.fields,field_description:manufactoring_custom.field_account_invoice__patient_phone
+#: model:ir.model.fields,field_description:manufactoring_custom.field_sale_order__patient_phone
+#: model_terms:ir.ui.view,arch_db:manufactoring_custom.report_invoice_customized
+#: model_terms:ir.ui.view,arch_db:manufactoring_custom.report_saleorder_customized
+msgid "Patient Phone"
+msgstr "رقم تلفون المريض "
+
+#. module: manufactoring_custom
+#: model:ir.model.fields,field_description:manufactoring_custom.field_sale_order__photos
+msgid "Photos"
+msgstr ""
+
+#. module: manufactoring_custom
+#: model_terms:ir.ui.view,arch_db:manufactoring_custom.report_saleorder_customized
+msgid "Photos:"
+msgstr "Photos"
+
+#. module: manufactoring_custom
+#: selection:dental,activity_state:0
+#: selection:section,activity_state:0
+msgid "Planned"
+msgstr "التخطيط"
+
+#. module: manufactoring_custom
+#: code:addons/manufactoring_custom/models/dental.py:229
+#, python-format
+msgid "Please define an Another section"
+msgstr "يرجى تحديد قسم آخر"
+
+#. module: manufactoring_custom
+#: code:addons/manufactoring_custom/models/dental.py:68
+#: code:addons/manufactoring_custom/models/dental.py:344
+#, python-format
+msgid "Please define an accounting sales journal for this company."
+msgstr "يرجى تحديد يومية مبيعات لهذه الشركة"
+
+#. module: manufactoring_custom
+#: model:ir.actions.act_window,name:manufactoring_custom.dental_view_porcelain_actions
+#: model:ir.ui.menu,name:manufactoring_custom.menu_manufacturing_orders_porcelain
+msgid "Porcelain"
+msgstr "البورسلين"
+
+#. module: manufactoring_custom
+#: model:ir.model,name:manufactoring_custom.model_product_product
+#: model:ir.model.fields,field_description:manufactoring_custom.field_dental__product_id
+#: model_terms:ir.ui.view,arch_db:manufactoring_custom.report_manufacturing_document
+msgid "Product"
+msgstr "المنتج"
+
+#. module: manufactoring_custom
+#: model:ir.model,name:manufactoring_custom.model_product_template
+msgid "Product Template"
+msgstr "قالب المنتج"
+
+#. module: manufactoring_custom
+#: model:ir.model.fields,field_description:manufactoring_custom.field_dental__product_uom_qty
+#: model_terms:ir.ui.view,arch_db:manufactoring_custom.report_manufacturing_document
+msgid "Qty Ordered"
+msgstr "الكمية المطلوبة"
+
+#. module: manufactoring_custom
+#: model_terms:ir.ui.view,arch_db:manufactoring_custom.report_invoice_customized
+msgid "Reference:"
+msgstr "المرجع:"
+
+#. module: manufactoring_custom
+#: model:ir.model.fields,field_description:manufactoring_custom.field_mo_operations__user_id
+#: model_terms:ir.ui.view,arch_db:manufactoring_custom.report_manufacturing_document
+msgid "Responsible"
+msgstr "المسئول"
+
+#. module: manufactoring_custom
+#: model:ir.model.fields,field_description:manufactoring_custom.field_dental__activity_user_id
+#: model:ir.model.fields,field_description:manufactoring_custom.field_section__activity_user_id
+msgid "Responsible User"
+msgstr "المستخدم المسئول"
+
+#. module: manufactoring_custom
+#: model_terms:ir.ui.view,arch_db:manufactoring_custom.dental_form_view
+#: selection:section.wizard,check_quality_transfer:0
+msgid "Return"
+msgstr "الترجيع"
+
+#. module: manufactoring_custom
+#: model:ir.model.fields,field_description:manufactoring_custom.field_dental__routing_id
+msgid "Routing"
+msgstr "حدد المسار"
+
+#. module: manufactoring_custom
+#: model:ir.model,name:manufactoring_custom.model_sale_order
+#: model:ir.model.fields,field_description:manufactoring_custom.field_dental__order_id
+msgid "Sale Order"
+msgstr "أمر البيع"
+
+#. module: manufactoring_custom
+#: model:ir.model.fields,field_description:manufactoring_custom.field_dental__name
+msgid "Sale Order #"
+msgstr "رقم امر المبيعات"
+
+#. module: manufactoring_custom
+#: code:addons/manufactoring_custom/models/dental.py:184
+#, python-format
+msgid "Sale Orders"
+msgstr "أوامر البيع"
+
+#. module: manufactoring_custom
+#: model_terms:ir.ui.view,arch_db:manufactoring_custom.view_order_form_orders
+msgid "Sales Order"
+msgstr "أمر البيع"
+
+#. module: manufactoring_custom
+#: model:ir.model,name:manufactoring_custom.model_sale_order_line
+msgid "Sales Order Line"
+msgstr "طلبات المبيعات"
+
+#. module: manufactoring_custom
+#: model_terms:ir.ui.view,arch_db:manufactoring_custom.report_saleorder_customized
+msgid "Salesperson"
+msgstr "موظف المبيعات"
+
+#. module: manufactoring_custom
+#: model:ir.actions.act_window,name:manufactoring_custom.section_manufacturing_actions
+#: model:ir.model.fields,field_description:manufactoring_custom.field_section_wizard__section_id
+#: model_terms:ir.ui.view,arch_db:manufactoring_custom.section_form_view
+#: model_terms:ir.ui.view,arch_db:manufactoring_custom.section_tree
+msgid "Section"
+msgstr "القسم"
+
+#. module: manufactoring_custom
+#: model:ir.model.fields,field_description:manufactoring_custom.field_mo_operations__section_from
+#: model_terms:ir.ui.view,arch_db:manufactoring_custom.report_manufacturing_document
+msgid "Section From"
+msgstr "من مرحلة"
+
+#. module: manufactoring_custom
+#: model_terms:ir.ui.view,arch_db:manufactoring_custom.report_manufacturing_document
+msgid "Section To"
+msgstr "الى مرحلة"
+
+#. module: manufactoring_custom
+#: model:ir.model.fields,field_description:manufactoring_custom.field_section__section_type
+msgid "Section Type"
+msgstr "نوع المرحلة"
+
+#. module: manufactoring_custom
+#: model:ir.model.fields,field_description:manufactoring_custom.field_mo_operations__section_to
+msgid "Section to"
+msgstr "الي مرحلة"
+
+#. module: manufactoring_custom
+#: code:addons/manufactoring_custom/models/dental.py:172
+#, python-format
+msgid "Section wizard"
+msgstr "النقل بين الأقسام"
+
+#. module: manufactoring_custom
+#: model_terms:ir.ui.view,arch_db:manufactoring_custom.dental_form_view
+msgid "Sections"
+msgstr "الاقسام"
+
+#. module: manufactoring_custom
+#: model:ir.model.fields,field_description:manufactoring_custom.field_dental__send_by_email
+msgid "Send Feedback Email"
+msgstr "ارسال عبر البريد الالكتروني"
+
+#. module: manufactoring_custom
+#: model:res.groups,name:manufactoring_custom.group_menu_manufacturing_orders_acrylic
+msgid "Show Acrylic Menu"
+msgstr "عرض قائمة الاكريليك"
+
+#. module: manufactoring_custom
+#: model:res.groups,name:manufactoring_custom.group_menu_manufacturing_orders_cercon
+msgid "Show Cercon Menu"
+msgstr "إظهار قائمة الزيريكون"
+
+#. module: manufactoring_custom
+#: model:res.groups,name:manufactoring_custom.contact_menu
+msgid "Show Contact Menu"
+msgstr "عرض قائمة الشركاء"
+
+#. module: manufactoring_custom
+#: model:res.groups,name:manufactoring_custom.group_menu_manufacturing_orders_e-max
+msgid "Show E-MAX Menu"
+msgstr "إظهار قائمة إي ماكس"
+
+#. module: manufactoring_custom
+#: model:res.groups,name:manufactoring_custom.group_menu_manufacturing_orders_gypsum
+msgid "Show Gypsum Menu"
+msgstr "إظهار قائمة الجبس"
+
+#. module: manufactoring_custom
+#: model:res.groups,name:manufactoring_custom.group_menu_inv_manufacturing_orders
+msgid "Show Invoice Menu"
+msgstr "إظهار قائمة الفواتير"
+
+#. module: manufactoring_custom
+#: model:res.groups,name:manufactoring_custom.group_menu_manufacturing_orders
+msgid "Show Orders Manufacturing Menu"
+msgstr "إظهار قائمة اوامر التصنيع"
+
+#. module: manufactoring_custom
+#: model:res.groups,name:manufactoring_custom.group_menu_manufacturing_orders_porcelain
+msgid "Show Porcelain Menu"
+msgstr "إظهار قائمة البورسلين"
+
+#. module: manufactoring_custom
+#: model:res.groups,name:manufactoring_custom.group_menu_sale_quotations
+msgid "Show Quotations Menu"
+msgstr "إظهار قائمة طلبات الأسعار"
+
+#. module: manufactoring_custom
+#: model:res.groups,name:manufactoring_custom.sale_configuration
+msgid "Show Sale Configuration"
+msgstr ""
+
+#. module: manufactoring_custom
+#: model:res.groups,name:manufactoring_custom.sale_invoice_order_act
+msgid "Show Sale Invoice Order Act"
+msgstr ""
+
+#. module: manufactoring_custom
+#: model:res.groups,name:manufactoring_custom.sale_product
+msgid "Show Sale Product"
+msgstr ""
+
+#. module: manufactoring_custom
+#: model:res.groups,name:manufactoring_custom.sale_team_menu
+msgid "Show Sale Team Menu"
+msgstr ""
+
+#. module: manufactoring_custom
+#: model:res.groups,name:manufactoring_custom.sale_to_invoice
+msgid "Show Sale to Invoice"
+msgstr ""
+
+#. module: manufactoring_custom
+#: model:res.groups,name:manufactoring_custom.group_sale_button_cancel
+msgid "Show button cancel sales"
+msgstr ""
+
+#. module: manufactoring_custom
+#: model:res.groups,name:manufactoring_custom.group_sale_button_lock
+msgid "Show button lock sales"
+msgstr ""
+
+#. module: manufactoring_custom
+#: model:res.groups,name:manufactoring_custom.group_menu_manufacturing_orders_wax-metal
+msgid "Show wax and metal  Menu"
+msgstr "إظهار قائمة الشمع والمعدن"
+
+#. module: manufactoring_custom
+#: model_terms:ir.ui.view,arch_db:manufactoring_custom.report_invoice_customized
+msgid "Source:"
+msgstr "المصدر:"
+
+#. module: manufactoring_custom
+#: model:ir.model.fields,field_description:manufactoring_custom.field_dental__state
+msgid "State"
+msgstr "الحالة"
+
+#. module: manufactoring_custom
+#: model:ir.model.fields,field_description:manufactoring_custom.field_account_invoice__status_order
+#: model:ir.model.fields,field_description:manufactoring_custom.field_sale_order__status_order
+#: model_terms:ir.ui.view,arch_db:manufactoring_custom.report_saleorder_customized
+msgid "Status Order"
+msgstr "حالة الطلب"
+
+#. module: manufactoring_custom
+#: model:ir.model.fields,help:manufactoring_custom.field_dental__activity_state
+#: model:ir.model.fields,help:manufactoring_custom.field_section__activity_state
+msgid "Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr "الحالة على أساس الأنشطة\n"
+"المتأخرة: تاريخ الاستحقاق مر\n"
+"اليوم: تاريخ النشاط هو اليوم\n"
+"المخطط: الأنشطة المستقبلية."
+
+#. module: manufactoring_custom
+#: model:ir.model.fields,field_description:manufactoring_custom.field_sale_order__teeth
+msgid "Teeth"
+msgstr "Teeth:"
+
+#. module: manufactoring_custom
+#: model:ir.model.fields,field_description:manufactoring_custom.field_account_invoice_line__teeth_num_ids
+#: model:ir.model.fields,field_description:manufactoring_custom.field_dental__teeth_num
+#: model:ir.model.fields,field_description:manufactoring_custom.field_sale_order_line__teeth_num_ids
+msgid "Teeth Num"
+msgstr "رقم اسنان "
+
+#. module: manufactoring_custom
+#: model_terms:ir.ui.view,arch_db:manufactoring_custom.report_invoice_customized
+#: model_terms:ir.ui.view,arch_db:manufactoring_custom.report_saleorder_customized
+msgid "Teeth Number"
+msgstr "رقم السن"
+
+#. module: manufactoring_custom
+#: model:ir.model.fields,field_description:manufactoring_custom.field_teeth_num__name
+msgid "Teeth number"
+msgstr "رقم السن"
+
+#. module: manufactoring_custom
+#: model_terms:ir.ui.view,arch_db:manufactoring_custom.report_saleorder_customized
+msgid "Teeth:"
+msgstr ""
+
+#. module: manufactoring_custom
+#: selection:dental,state:0
+msgid "To Invoice"
+msgstr "للفوترة"
+
+#. module: manufactoring_custom
+#: selection:dental,activity_state:0
+#: selection:section,activity_state:0
+msgid "Today"
+msgstr "اليوم"
+
+#. module: manufactoring_custom
+#: model:ir.model.fields,field_description:manufactoring_custom.field_dental__total_amount
+msgid "Total Amount"
+msgstr "الاجمالي"
+
+#. module: manufactoring_custom
+#: model:ir.model.fields,field_description:manufactoring_custom.field_hr_contract__total_salary
+msgid "Total Salary"
+msgstr "اجمالي الراتب"
+
+#. module: manufactoring_custom
+#: model_terms:ir.ui.view,arch_db:manufactoring_custom.dental_form_view
+#: model_terms:ir.ui.view,arch_db:manufactoring_custom.view_section_wizard
+msgid "Transfer"
+msgstr "نقل"
+
+#. module: manufactoring_custom
+#: model:ir.model.fields,field_description:manufactoring_custom.field_hr_contract__transportation_allowance_value
+msgid "Transportation"
+msgstr "موصلات"
+
+#. module: manufactoring_custom
+#: model:hr.salary.rule,name:manufactoring_custom.hr_rule_trans
+msgid "Transportation Allowance"
+msgstr "بدل مواصلات"
+
+#. module: manufactoring_custom
+#: model_terms:ir.ui.view,arch_db:manufactoring_custom.report_invoice_customized
+#: model_terms:ir.ui.view,arch_db:manufactoring_custom.report_saleorder_customized
+msgid "Tray In"
+msgstr "للتجربة"
+
+#. module: manufactoring_custom
+#: model:ir.model.fields,field_description:manufactoring_custom.field_sale_order__tryy
+msgid "Try"
+msgstr ""
+
+#. module: manufactoring_custom
+#: model:ir.model.fields,field_description:manufactoring_custom.field_account_invoice_line__date_status
+#: model:ir.model.fields,field_description:manufactoring_custom.field_dental__date_status
+#: model:ir.model.fields,field_description:manufactoring_custom.field_sale_order_line__date_status
+#: model_terms:ir.ui.view,arch_db:manufactoring_custom.report_manufacturing_document
+#: selection:section.wizard,check_quality_transfer:0
+msgid "Try In"
+msgstr "للتجربة"
+
+#. module: manufactoring_custom
+#: model_terms:ir.ui.view,arch_db:manufactoring_custom.report_saleorder_customized
+msgid "Tryy:"
+msgstr ""
+
+#. module: manufactoring_custom
+#: model:ir.model.fields,field_description:manufactoring_custom.field_sale_order__usb
+msgid "USB"
+msgstr ""
+
+#. module: manufactoring_custom
+#: model:ir.model.fields,field_description:manufactoring_custom.field_dental__price_unit
+#: model_terms:ir.ui.view,arch_db:manufactoring_custom.report_manufacturing_document
+msgid "Unit Price"
+msgstr "سعر الوحدة"
+
+#. module: manufactoring_custom
+#: model:ir.model.fields,field_description:manufactoring_custom.field_dental__message_unread
+#: model:ir.model.fields,field_description:manufactoring_custom.field_section__message_unread
+msgid "Unread Messages"
+msgstr "الرسائل الجديدة"
+
+#. module: manufactoring_custom
+#: model:ir.model.fields,field_description:manufactoring_custom.field_dental__message_unread_counter
+#: model:ir.model.fields,field_description:manufactoring_custom.field_section__message_unread_counter
+msgid "Unread Messages Counter"
+msgstr "عدد الرسائل الجديدة"
+
+#. module: manufactoring_custom
+#: selection:account.invoice,status_order:0
+#: selection:sale.order,status_order:0
+msgid "Urgent"
+msgstr "مستعجل"
+
+#. module: manufactoring_custom
+#: model_terms:ir.ui.view,arch_db:manufactoring_custom.report_saleorder_customized
+msgid "Usb:"
+msgstr ""
+
+#. module: manufactoring_custom
+#: model:res.groups,name:manufactoring_custom.manufacturing_group_user
+msgid "User"
+msgstr "المستخدم"
+
+#. module: manufactoring_custom
+#: selection:section,section_type:0
+msgid "Wax-Meatl"
+msgstr "شمع و معدن"
+
+#. module: manufactoring_custom
+#: model:ir.actions.act_window,name:manufactoring_custom.dental_view_wax-metal_actions
+#: model:ir.ui.menu,name:manufactoring_custom.menu_manufacturing_orders_wax-metal
+msgid "Wax-Metal"
+msgstr "شمع و معدن"
+
+#. module: manufactoring_custom
+#: model:ir.model.fields,field_description:manufactoring_custom.field_dental__website_message_ids
+#: model:ir.model.fields,field_description:manufactoring_custom.field_section__website_message_ids
+msgid "Website Messages"
+msgstr "رسائل الموقع"
+
+#. module: manufactoring_custom
+#: model:ir.model.fields,help:manufactoring_custom.field_dental__website_message_ids
+#: model:ir.model.fields,help:manufactoring_custom.field_section__website_message_ids
+msgid "Website communication history"
+msgstr "سجل تواصل الموقع"
+
+#. module: manufactoring_custom
+#: model:ir.model.fields,help:manufactoring_custom.field_sale_order__partner_id
+msgid "You can find a customer by its Name, TIN, Email or Internal Reference."
+msgstr "يمكنك ايجاد العميل بواسطة الاسم، أو الرقم التعريفي لدافع الضرائب TIN، أو البريد الالكتروني، أو بواسطة مرجع داخلي."
+
+#. module: manufactoring_custom
+#: code:addons/manufactoring_custom/models/dental.py:312
+#, python-format
+msgid "You cant confirm multi order for different customer"
+msgstr "لا يمكنك تأكيد النظام المتعدد للعملاء المختلفين"
+
+#. module: manufactoring_custom
+#: code:addons/manufactoring_custom/models/dental.py:315
+#, python-format
+msgid "You cant confirm multi order for different sale order"
+msgstr "لا يمكنك اصدار فواتير لطلبات بيع مختلفة"
+
+#. module: manufactoring_custom
+#: code:addons/manufactoring_custom/models/dental.py:339
+#, python-format
+msgid "You cant create invoice because one of the already invoiced"
+msgstr "لا يمكنك اصدار فاتورة لان احد الطلبات تم فوترته مسبقا"
+
+#. module: manufactoring_custom
+#: code:addons/manufactoring_custom/models/dental.py:134
+#, python-format
+msgid "You cant return paid invoice"
+msgstr "لا يمكنك ارجاع فاتورة مدفوعة"
+
+#. module: manufactoring_custom
+#: selection:dental,state:0
+msgid "draft"
+msgstr "مسودة"
+
+#. module: manufactoring_custom
+#: model:ir.model,name:manufactoring_custom.model_invoice_wizard
+msgid "invoice.wizard"
+msgstr ""
+
+#. module: manufactoring_custom
+#: model:ir.model.fields,field_description:manufactoring_custom.field_sale_order_line__num_days
+msgid "number of day"
+msgstr "عدد الايام"
+
+#. module: manufactoring_custom
+#: model_terms:ir.ui.view,arch_db:manufactoring_custom.multi_shipment_confirm_view_wiz
+msgid "or"
+msgstr "أو"
+
+#. module: manufactoring_custom
+#: selection:section,section_type:0
+msgid "porcelain"
+msgstr "البورسلين"
+
+#. module: manufactoring_custom
+#: model:ir.model,name:manufactoring_custom.model_section
+msgid "section"
+msgstr "القسم"
+
+#. module: manufactoring_custom
+#: model:ir.model,name:manufactoring_custom.model_section_wizard
+msgid "section.wizard"
+msgstr ""
+
+#. module: manufactoring_custom
+#: model:ir.ui.menu,name:manufactoring_custom.menu_sections
+msgid "sections"
+msgstr "الاقسام"
+
+#. module: manufactoring_custom
+#: model:ir.model,name:manufactoring_custom.model_teeth_num
+msgid "teeth number"
+msgstr "رقم السن"

@@ -1,0 +1,72 @@
+<odoo>
+    <data noupdate="0">
+        <record id="group_sale_button_cancel" model="res.groups">
+            <field name="name">Show button cancel sales</field>
+            <field name="category_id" ref="base.module_category_usability"/>
+        </record>
+        <record id="group_sale_button_lock" model="res.groups">
+            <field name="name">Show button lock sales</field>
+            <field name="category_id" ref="base.module_category_usability"/>
+        </record>
+        <record id="group_menu_sale_quotations" model="res.groups">
+            <field name="category_id" ref="base.module_category_usability"/>
+            <field name="name">Show Quotations Menu</field>
+        </record>
+        <record id="group_menu_manufacturing_orders_porcelain" model="res.groups">
+            <field name="category_id" ref="base.module_category_usability"/>
+            <field name="name">Show Porcelain Menu</field>
+        </record>
+        <record id="group_menu_manufacturing_orders_cercon" model="res.groups">
+            <field name="category_id" ref="base.module_category_usability"/>
+            <field name="name">Show Cercon Menu</field>
+        </record>
+        <record id="group_menu_manufacturing_orders_e-max" model="res.groups">
+            <field name="category_id" ref="base.module_category_usability"/>
+            <field name="name">Show E-MAX Menu</field>
+        </record>
+        <record id="group_menu_manufacturing_orders_acrylic" model="res.groups">
+            <field name="category_id" ref="base.module_category_usability"/>
+            <field name="name">Show Acrylic Menu</field>
+        </record>
+        <record id="group_menu_manufacturing_orders_gypsum" model="res.groups">
+            <field name="category_id" ref="base.module_category_usability"/>
+            <field name="name">Show Gypsum Menu</field>
+        </record>
+        <record id="group_menu_inv_manufacturing_orders" model="res.groups">
+            <field name="category_id" ref="base.module_category_usability"/>
+            <field name="name">Show Invoice Menu</field>
+        </record>
+        <record id="group_menu_manufacturing_orders" model="res.groups">
+            <field name="category_id" ref="base.module_category_usability"/>
+            <field name="name">Show Orders Manufacturing Menu</field>
+        </record>
+        <record id="group_menu_manufacturing_orders_wax-metal" model="res.groups">
+            <field name="category_id" ref="base.module_category_usability"/>
+            <field name="name">Show wax and metal  Menu</field>
+        </record>
+        <record id="sale_to_invoice" model="res.groups">
+            <field name="category_id" ref="base.module_category_usability"/>
+            <field name="name">Show Sale to Invoice</field>
+        </record>
+        <record id="sale_product" model="res.groups">
+            <field name="category_id" ref="base.module_category_usability"/>
+            <field name="name">Show Sale Product</field>
+        </record>
+        <record id="sale_configuration" model="res.groups">
+            <field name="category_id" ref="base.module_category_usability"/>
+            <field name="name">Show Sale Configuration</field>
+        </record>
+        <record id="sale_invoice_order_act" model="res.groups">
+            <field name="category_id" ref="base.module_category_usability"/>
+            <field name="name">Show Sale Invoice Order Act</field>
+        </record>
+        <record id="contact_menu" model="res.groups">
+            <field name="category_id" ref="base.module_category_usability"/>
+            <field name="name">Show Contact Menu</field>
+        </record>
+        <record id="sale_team_menu" model="res.groups">
+            <field name="category_id" ref="base.module_category_usability"/>
+            <field name="name">Show Sale Team Menu</field>
+        </record>
+    </data>
+</odoo>

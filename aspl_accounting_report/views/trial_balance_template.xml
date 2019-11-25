@@ -57,9 +57,16 @@
                                      <span t-att-style="style" t-esc="account['init_bal']" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}"/>
                                 </td>
                             </t>
-                            <td class="text-right">
-                                 <span t-att-style="style" t-esc="account['debit']" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}"/>
+                            <t t-if="data['include_init_balance']">
+                                <td class="text-right">
+                                 <span t-att-style="style" t-esc="account['debit'] - account['init_bal']" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}"/>
                             </td>
+                            </t>
+                             <t t-if="not data.get('include_init_balance')">
+                                 <td class="text-right">
+                                    <span t-att-style="style" t-esc="account['debit']" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}"/>
+                                 </td>
+                             </t>
                             <td class="text-right">
                                 <span t-att-style="style" t-esc="account['credit']" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}"/>
                             </td>

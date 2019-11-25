@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="report_manufacturing_document">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t t-call="web.external_layout">
+                        <div class="page">
+                            <img t-if="res_company.logo" t-att-src="'data:image/png;base64,%s' %res_company.logo"/>
+                            <h1><center><strong><p t-field="o.number"/></strong></center></h1>
+                            <div style="width: 100%; display:table; clear:both; margin-bottom:40px">
+                                <table style="width: 48%; float:left; border:1px solid black; margin-right:2%">
+                                    <tr>
+                                        <th style="border:1px solid black; padding: 5px; width:50%">Name</th>
+                                        <td style="border:1px solid black; padding: 5px; width:50%"><span t-field="o.name"/></td>
+                                    </tr>
+                                    <tr>
+                                        <th style="border:1px solid black; padding: 5px; width:50%">Product</th>
+                                        <td style="border:1px solid black; padding: 5px; width:50%"><span t-field="o.product_id"/></td>
+                                    </tr>
+                                    <tr>
+                                        <th style="border:1px solid black; padding: 5px; width:50%">Qty Ordered</th>
+                                        <td style="border:1px solid black; padding: 5px; width:50%"><span t-field="o.product_uom_qty"/></td>
+                                    </tr>
+                                    <tr>
+                                        <th style="border:1px solid black; padding: 5px; width:50%">Customer</th>
+                                        <td style="border:1px solid black; padding: 5px; width:50%"><span t-field="o.partner_id"/></td>
+                                    </tr>
+                                    <tr>
+                                        <th style="border:1px solid black; padding: 5px; width:50%">#Teeth</th>
+                                        <td style="border:1px solid black; padding: 5px; width:50%"><span t-field="o.teeth_num"/></td>
+                                    </tr>
+                                    <tr>
+                                        <th style="border:1px solid black; padding: 5px; width:50%">Try In</th>
+                                        <td style="border:1px solid black; padding: 5px; width:50%"><span t-field="o.date_status"/></td>
+                                    </tr>
+                                </table>
+                                <table style="width: 48%; float:left; border:1px solid black">
+                                    <tr>
+                                        <th style="border:1px solid black; padding: 5px; width:50%">Description</th>
+                                        <td style="border:1px solid black; padding: 5px; width:50%"><span t-field="o.description"/></td>
+                                    </tr>
+                                    <tr>
+                                        <th style="border:1px solid black; padding: 5px; width:50%">Unit Price</th>
+                                        <td style="border:1px solid black; padding: 5px; width:50%"><span t-field="o.price_unit"/></td>
+                                    </tr>
+                                    <tr>
+                                        <th style="border:1px solid black; padding: 5px; width:50%">Current Section</th>
+                                        <td style="border:1px solid black; padding: 5px; width:50%"><span t-field="o.current_section_id"/></td>
+                                    </tr>
+                                    <tr>
+                                        <th style="border:1px solid black; padding: 5px; width:50%">Order Date</th>
+                                        <td style="border:1px solid black; padding: 5px; width:50%"><span t-field="o.order_date"/></td>
+                                    </tr>
+                                    <tr>
+                                        <th style="border:1px solid black; padding: 5px; width:50%">Color Name</th>
+                                        <td style="border:1px solid black; padding: 5px; width:50%"><span t-field="o.color_num"/></td>
+                                    </tr>
+                                    <tr>
+                                        <th style="border:1px solid black; padding: 5px; width:50%">Delivery Date</th>
+                                        <td style="border:1px solid black; padding: 5px; width:50%"><span t-field="o.date_delivery"/></td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <table class="table table-condensed">
+                                <thead>
+                                    <tr class="text-center" style="white-space:nowrap;">
+                                        <th>Section From</th>
+                                        <th>Section To</th>
+                                        <th>Date</th>
+                                        <th>Responsible</th>
+                                        <th>Note</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr t-foreach="o.operation_ids.sorted(key=lambda m: m.id)" t-as="line" class="text-center" style="white-space:nowrap;">
+                                        <td><span t-esc="line.section_from"/></td>
+                                        <td><span t-esc="line.section_to"/></td>
+                                        <td><span t-esc="line.date"/></td>
+                                        <td><span t-esc="line.user_id.name"/></td>
+                                        <td><span t-field="line.note"/></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

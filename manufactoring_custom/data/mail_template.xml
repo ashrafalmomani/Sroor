@@ -1,0 +1,22 @@
+<?xml version="1.0" ?>
+<odoo>
+    <data noupdate="0">
+        <record id="send_email" model="mail.template">
+            <field name="name">Email: Send by email</field>
+            <field name="model_id" ref="manufactoring_custom.model_section_wizard"/>
+            <field name="email_from">${(user.email or '')|safe}</field>
+            <field name="email_to">${object.manager.email|safe}</field>
+            <field name="subject">An invoice has been created on this order ${object.manager.company_id.name}</field>
+            <field name="auto_delete" eval="True"/>
+            <field name="user_signature" eval="False"/>
+            <field name="body_html" type="html">
+                <div style="margin: 0px; padding: 0px;">
+                    <p style="margin: 0px; padding: 0px; font-size: 13px;">
+                        Hello ${object.manager.name},<br/><br/>
+                        An invoice has been created on this order ${object.manager.company_id.name}
+                    </p>
+                </div>
+            </field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <report
+        id="manufacturing_report"
+        model="dental"
+        string="Manufacturing Order"
+        report_type="qweb-pdf"
+        name="manufactoring_custom.report_manufacturing_document"
+        file="manufactoring_custom.report_manufacturing_document"/>
+
+</odoo>

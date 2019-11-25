@@ -14,6 +14,9 @@
                 <field name="reconciled"/>
                 <newline/>
             </xpath>
+            <xpath expr="//field[@name='journal_ids']" position="before">
+                <field name="partner_ids" widget="many2many_tags"/>
+            </xpath>
         </data>
         </field>
     </record>
@@ -38,5 +41,16 @@
         action="action_account_partner_ledger_menu"
         groups="account.group_account_user"
        />
+
+    <act_window name="Partner Ledger"
+            res_model="account.report.partner.ledger"
+            src_model="res.partner"
+            view_mode="form"
+            view_id ="accounting_pdf_reports.account_report_partner_ledger_view"
+            target="new"
+            key2="client_print_multi"
+            id="action_account_partner_ledger_report_filter"
+            context="{'default_partner_ids':active_ids}"
+        />
 
 </odoo>

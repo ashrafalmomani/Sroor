@@ -2,9 +2,9 @@
 <odoo>
     <data>
 
-        <menuitem id="menu_finance_legal_statement"
-                  name="PDF Reports"
-                  parent="account.menu_finance_reports"/>
+        <menuitem id="menu_finance_legal_statement" name="PDF Reports" parent="account.menu_finance_reports"  groups="accounting_group_manager"/>
+
+
 
     </data>
 </odoo>

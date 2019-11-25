@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!-- Order tree-->
+        <record id="act_mo_list" model="ir.actions.act_window">
+            <field name="res_model">account.invoice</field>
+            <field name="name">Invoice</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('mo_ids', 'in', [active_id])]</field>
+            <field name="context">{'default_type':'out_invoice', 'type':'out_invoice', 'journal_type': 'sale', 'form_view_ref':'account.invoice_form', 'tree_view_ref':'account.invoice_tree_with_onboarding'}</field>
+        </record>
+
+        <record model="ir.ui.view" id="dental_tree">
+            <field name="name">dental.list</field>
+            <field name="model">dental</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string='Manufacturing' create="false">
+                    <field name="number"/>
+                    <field name="name"/>
+                    <field name="description"/>
+                    <field name="product_id"/>
+                    <field name="price_unit"/>
+                    <field name="product_uom_qty"/>
+                    <field name="partner_id"/>
+                    <field name="current_section_id"/>
+                    <field name="order_date"/>
+                    <field name="teeth_num"  widget="many2many_tags"/>
+                    <field name="color_num"/>
+                    <field name="date_status"/>
+                    <field name="date_delivery"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Order form-->
+        <record id="dental_form_view" model="ir.ui.view">
+            <field name="name">dental.form</field>
+            <field name="model">dental</field>
+            <field name="arch" type="xml">
+                <form string="" create="false" edit="false">
+                    <header>
+                        <button name="confirm" type="object" states="draft" string="Confirm" class="oe_highlight"/>
+                        <button name="action_return" type="object" states="invoice" string="Return" class="oe_highlight"/>
+                        <button name="action_invoice" type="object" states="to_invoice" string="Invoice" class="oe_highlight"/>
+                        <button name="action_cancel_so" type="object" states="to_invoice" string="Cancel" class="oe_highlight"/>
+                        <button name="transfer" type="object" string="Transfer" class="oe_highlight" states="in_progress,to_invoice"/>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,in_progress,to_invoice,invoice,cancel"/>
+                    </header>
+                    <sheet>
+                        <h2>
+                            <div class="oe_button_box" name="button_box">
+                                <button name="%(act_mo_list)d"
+                                        class="oe_stat_button"
+                                        icon="fa-book"
+                                        type="action"
+                                        string="Invoice" />
+                            </div>
+                            <div class="oe_title">
+                                <h1>
+                                    <field name="number" readonly="1"/>
+                                </h1>
+                            </div>
+                        </h2>
+                        <group string="Order Information">
+                            <group>
+                                <field name="name" attrs="{'readonly': [('state', 'in', ('in_progress'))]}"/>
+                                <field name="order_date" attrs="{'readonly': [('state', 'in', ('in_progress'))]}"/>
+                                <field name="product_id" attrs="{'readonly': [('state', 'in', ('in_progress'))]}"/>
+                                <field name="description" attrs="{'readonly': [('state', 'in', ('in_progress'))]}"/>
+                                <field name="product_uom_qty" attrs="{'readonly': [('state', 'in', ('in_progress'))]}"/>
+                                <field name="price_unit" attrs="{'readonly': [('state', 'in', ('in_progress'))]}"/>
+                                <field name="discount" attrs="{'readonly': [('state', 'in', ('in_progress'))]}"/>
+                                <field name="total_amount" attrs="{'readonly': [('state', 'in', ('in_progress'))]}"/>
+                            </group>
+                            <group>
+                                <field name="partner_id" attrs="{'readonly': [('state', 'in', ('in_progress'))]}"/>
+                                <field name="teeth_num" widget="many2many_tags" attrs="{'readonly': [('state', 'in', ('in_progress'))]}"/>
+                                <field name="color_num" attrs="{'readonly': [('state', 'in', ('in_progress'))]}"/>
+                                <field name="date_status" attrs="{'readonly': [('state', 'in', ('in_progress'))]}"/>
+                                <field name="date_delivery" attrs="{'readonly': [('state', 'in', ('in_progress'))]}"/>
+                                <field name="current_section_id"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Sections">
+                                <field name="operation_ids">
+                                    <tree editable="false">
+                                        <field name="section_from"/>
+                                        <field name="section_to"/>
+                                        <field name="date"/>
+                                        <field name="user_id"/>
+                                        <field name="note"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                        <field name="activity_ids" widget="mail_activity"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <!-- Order action-->
+        <record id="sale_manufacturing_actions" model="ir.actions.act_window">
+            <field name="name">Manufacturing</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">dental</field>
+            <field name="view_type">form</field>
+            <field name="view_id" ref="dental_tree"/>
+        </record>
+
+        <!-- porcelain action-->
+        <record id="dental_view_porcelain_actions" model="ir.actions.act_window">
+            <field name="name">Porcelain</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">dental</field>
+            <field name="view_type">form</field>
+            <field name="domain">[('current_section_id','=',1)]</field>
+        </record>
+
+        <!-- cercon action-->
+        <record id="dental_view_cercon_actions" model="ir.actions.act_window">
+            <field name="name">Cercon</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">dental</field>
+            <field name="view_type">form</field>
+            <field name="domain">[('current_section_id','=',2)]</field>
+        </record>
+
+        <!-- e-max action-->
+        <record id="dental_view_e-max_actions" model="ir.actions.act_window">
+            <field name="name">E-Max</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">dental</field>
+            <field name="view_type">form</field>
+            <field name="domain">[('current_section_id','=',3)]</field>
+        </record>
+
+        <!-- wax-metal action-->
+        <record id="dental_view_wax-metal_actions" model="ir.actions.act_window">
+            <field name="name">Wax-Metal</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">dental</field>
+            <field name="view_type">form</field>
+            <field name="domain">[('current_section_id','=',4)]</field>
+        </record>
+
+        <!-- Acrylic action-->
+        <record id="dental_view_acrylic_actions" model="ir.actions.act_window">
+            <field name="name">Acrylic</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">dental</field>
+            <field name="view_type">form</field>
+            <field name="domain">[('current_section_id','=',5)]</field>
+        </record>
+
+        <!-- Gypsum action-->
+        <record id="dental_view_gypsum_actions" model="ir.actions.act_window">
+            <field name="name">Gypsum</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">dental</field>
+            <field name="view_type">form</field>
+            <field name="domain">[('current_section_id','=',6)]</field>
+        </record>
+
+        <!-- invoice action-->
+        <record id="action_invoice_mo_orders" model="ir.actions.server">
+            <field name="name">Orders</field>
+            <field name="condition">True</field>
+            <field name="type">ir.actions.server</field>
+            <field name="model_id" ref="model_dental"/>
+            <field name="state">code</field>
+            <field name="code">action = model.action_invoice_mo_orders()</field>
+        </record>
+
+        <!-- section_wizard action-->
+        <record id="view_section_wizard" model="ir.ui.view">
+            <field name="name">Section</field>
+            <field name="model">section.wizard</field>
+            <field name="arch" type="xml">
+                <form string="Choose Section ">
+                    <group>
+                        <group>
+                            <field name="section_id" required="1"/>
+                            <field name="invoice_section" invisible="1"/>
+                            <field name="check_quality_transfer"
+                                   attrs="{'invisible':[('invoice_section', '!=', True)], 'required':[('invoice_section', '=', True)]}"/>
+                        </group>
+                    </group>
+                    <field name="note" plaseholder="Please add your note" attrs="{'required':[('check_quality_transfer', 'in', ('cancel', 'return'))]}"/>
+                    <footer>
+                        <button name="confirm_transfer" string="Transfer" type="object" class="btn-primary"/>
+                        <button string="Cancel" class="btn-default" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="multi_shipment_confirm_view_wiz" model="ir.ui.view">
+            <field name="name">shipment.request.wiz.form.view</field>
+            <field name="model">invoice.wizard</field>
+            <field name="arch" type="xml">
+                <form string="Confirm">
+                    <h3>Click on Confirm for confirm multi invoice. </h3>
+                    <footer>
+                        <button name="action_invoice" string="Confirm" type="object" class="oe_highlight"/>
+                        or
+                        <button string="Cancel" class="oe_link" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_multi_invoice_confirm" model="ir.actions.act_window">
+            <field name="name">Multi invoice Confirmation</field>
+            <field name="res_model">dental</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+
+        <act_window id="create_invoice"
+                    multi="True"
+                    name="Create Invoices"
+                    res_model="invoice.wizard"
+                    src_model="dental"
+                    view_mode="form"
+                    target="new"
+                    view_type="form"/>
+
+        <menuitem name="Manufacturing" id="menu_manufacturing" groups="manufacturing_group_user"/>
+        <menuitem name="MO order" id="menu_manufacturing_mo" parent="menu_manufacturing" sequence="1" groups="manufacturing_group_user"/>
+        <menuitem name="Orders" id="menu_manufacturing_orders" parent="menu_manufacturing_mo" action="sale_manufacturing_actions"/>
+        <menuitem name="Porcelain" id="menu_manufacturing_orders_porcelain" parent="menu_manufacturing_mo" action="dental_view_porcelain_actions"/>
+        <menuitem name="Cercon" id="menu_manufacturing_orders_cercon" parent="menu_manufacturing_mo" action="dental_view_cercon_actions"/>
+        <menuitem name="E-Max" id="menu_manufacturing_orders_e-max" parent="menu_manufacturing_mo" action="dental_view_e-max_actions"/>
+        <menuitem name="Wax-Metal" id="menu_manufacturing_orders_wax-metal" parent="menu_manufacturing_mo" action="dental_view_wax-metal_actions"/>
+        <menuitem name="Acrylic" id="menu_manufacturing_orders_acrylic" parent="menu_manufacturing_mo" action="dental_view_acrylic_actions"/>
+        <menuitem name="Gypsum" id="menu_manufacturing_orders_gypsum" parent="menu_manufacturing_mo" action="dental_view_gypsum_actions"/>
+        <menuitem name="Invoice Orders" id="menu_inv_manufacturing_orders" parent="menu_manufacturing_mo" action="action_invoice_mo_orders" sequence="10"/>
+        <menuitem name="Configuration" id="menu_config" parent="menu_manufacturing" sequence="2" groups="manufacturing_group_manager"/>
+        <menuitem name="sections" id="menu_sections" parent="menu_config" action="section_manufacturing_actions" groups="manufacturing_group_manager"/>
+    </data>
+</odoo>

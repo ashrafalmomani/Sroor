@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="report_saleorder_customized" inherit_id="sale.report_saleorder_document">
+            <div id="informations" position="replace">
+                <div style="width: 100%; display:table; clear:both; margin-bottom:40px">
+                    <table style="width: 48%; float:left; border:1px solid black; margin-right:2%">
+                        <tr>
+                            <th style="border:1px solid black; padding: 5px; width:50%">Date Ordered</th>
+                            <td style="border:1px solid black; padding: 5px; width:50%"><span t-field="doc.date_order"/></td>
+                        </tr>
+                        <tr>
+                            <th style="border:1px solid black; padding: 5px; width:50%">Salesperson</th>
+                            <td style="border:1px solid black; padding: 5px; width:50%"><span t-field="doc.user_id"/></td>
+                        </tr>
+                        <tr>
+                            <th style="border:1px solid black; padding: 5px; width:50%">Status Order</th>
+                            <td style="border:1px solid black; padding: 5px; width:50%"><span t-field="doc.status_order"/></td>
+                        </tr>
+                        <tr>
+                            <th style="border:1px solid black; padding: 5px; width:50%">Customer Request #</th>
+                            <td style="border:1px solid black; padding: 5px; width:50%"><span t-field="doc.customer_request_number"/></td>
+                        </tr>
+                    </table>
+                    <table style="width: 48%; float:left; border:1px solid black">
+                        <tr>
+                            <th style="border:1px solid black; padding: 5px; width:50%">Patient Name</th>
+                            <td style="border:1px solid black; padding: 5px; width:50%"><span t-field="doc.patient_name"/></td>
+                        </tr>
+                        <tr>
+                            <th style="border:1px solid black; padding: 5px; width:50%">Patient Phone</th>
+                            <td style="border:1px solid black; padding: 5px; width:50%"><span t-field="doc.patient_phone"/></td>
+                        </tr>
+                        <tr>
+                            <th style="border:1px solid black; padding: 5px; width:50%">Patient Age</th>
+                            <td style="border:1px solid black; padding: 5px; width:50%"><span t-field="doc.patient_age"/></td>
+                        </tr>
+                        <tr>
+                            <th style="border:1px solid black; padding: 5px; width:50%">Patient File Number</th>
+                            <td style="border:1px solid black; padding: 5px; width:50%"><span t-field="doc.num_file_patient"/></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <xpath expr="//table[1]/thead/tr/th[1]">
+                <th class="text-left">Note</th>
+                <th class="text-left">Teeth Number</th>
+                <th class="text-left">Color Number</th>
+                <th class="text-left">Tray In</th>
+                <th class="text-left">Delivery Date</th>
+            </xpath>
+            <xpath expr="//table[1]/tbody/t[2]/tr/t/td[1]">
+                <td class="text-center"><span t-field="line.product_note"/></td>
+                <td class="text-center"><span t-field="line.teeth_num_ids"/></td>
+                <td class="text-center"><span t-field="line.color_num"/></td>
+                <td class="text-center"><span t-field="line.date_status"/></td>
+                <td class="text-center"><span t-field="line.date_delivery"/></td>
+            </xpath>
+
+            <div name="signature" position="before">
+                <div style="width: 100%; display:table; clear:both; margin-bottom:40px">
+                    <table style="width: 48%; float:left; border:1px solid black; margin-right:2%">
+                        <tr t-if="doc.model">
+                            <th style="border:1px solid black; padding: 5px; width:50%">Model:</th>
+                            <td style="border:1px solid black; padding: 5px; width:50%"><input t-if="doc.model" type="checkbox" id="checkbox104_anything_you_give" checked="checked"/></td>
+                        </tr>
+                        <tr t-if="doc.tryy">
+                            <th style="border:1px solid black; padding: 5px; width:50%">Tryy:</th>
+                            <td style="border:1px solid black; padding: 5px; width:50%"><input t-if="doc.tryy" type="checkbox" id="checkbox104_anything_you_give" checked="checked"/></td>
+                        </tr>
+                        <tr t-if="doc.teeth">
+                            <th style="border:1px solid black; padding: 5px; width:50%">Teeth:</th>
+                            <td style="border:1px solid black; padding: 5px; width:50%"><input t-if="doc.teeth" type="checkbox" id="checkbox104_anything_you_give" checked="checked"/></td>
+                        </tr>
+                        <tr t-if="doc.photos">
+                            <th style="border:1px solid black; padding: 5px; width:50%">Photos:</th>
+                            <td style="border:1px solid black; padding: 5px; width:50%"><input t-if="doc.photos" type="checkbox" id="checkbox104_anything_you_give" checked="checked"/></td>
+                        </tr>
+                        <tr t-if="doc.bite">
+                            <th style="border:1px solid black; padding: 5px; width:50%">Bite:</th>
+                            <td style="border:1px solid black; padding: 5px; width:50%"><input t-if="doc.bite" type="checkbox" id="checkbox104_anything_you_give" checked="checked"/></td>
+                        </tr>
+                    </table>
+                    <table style="width: 48%; float:left; border:1px solid black">
+                        <tr t-if="doc.face_bow">
+                            <th style="border:1px solid black; padding: 5px; width:50%">Face Bow:</th>
+                            <td style="border:1px solid black; padding: 5px; width:50%"><input t-if="doc.face_bow" type="checkbox" id="checkbox104_anything_you_give" checked="checked"/></td>
+                        </tr>
+                        <tr t-if="doc.mother_model">
+                            <th style="border:1px solid black; padding: 5px; width:50%">Mother Model:</th>
+                            <td style="border:1px solid black; padding: 5px; width:50%"><input t-if="doc.mother_model" type="checkbox" id="checkbox104_anything_you_give" checked="checked"/></td>
+                        </tr>
+                        <tr t-if="doc.impression">
+                            <th style="border:1px solid black; padding: 5px; width:50%">Impression:</th>
+                            <td style="border:1px solid black; padding: 5px; width:50%"><input t-if="doc.impression" type="checkbox" id="checkbox104_anything_you_give" checked="checked"/></td>
+                        </tr>
+                        <tr t-if="doc.usb">
+                            <th style="border:1px solid black; padding: 5px; width:50%">Usb:</th>
+                            <td style="border:1px solid black; padding: 5px; width:50%"><input t-if="doc.usb" type="checkbox" id="checkbox104_anything_you_give" checked="checked"/></td>
+                        </tr>
+                        <tr t-if="doc.other">
+                            <th style="border:1px solid black; padding: 5px; width:50%">Other:</th>
+                            <td style="border:1px solid black; padding: 5px; width:50%"><span t-field="doc.noteother"/></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <xpath expr="//h2" position="replace">
+                <h2>
+                    <span>Request Order # </span> <span t-field="doc.name"/>
+                </h2>
+            </xpath>
+        </template>
+
+        <template id="report_invoice_customized" inherit_id="account.report_invoice_document">
+            <div id="informations" position="replace">
+                <div style="width: 100%; display:table; clear:both; margin-bottom:40px">
+                    <table style="width: 48%; float:left; border:1px solid black; margin-right:2%">
+                        <tr>
+                            <th style="border:1px solid black; padding: 5px; width:50%">Invoice Date:</th>
+                            <td style="border:1px solid black; padding: 5px; width:50%"><span t-field="o.date_invoice"/></td>
+                        </tr>
+                        <tr>
+                            <th style="border:1px solid black; padding: 5px; width:50%">Source:</th>
+                            <td style="border:1px solid black; padding: 5px; width:50%"><span t-field="o.origin"/></td>
+                        </tr>
+                        <tr>
+                            <th style="border:1px solid black; padding: 5px; width:50%">Customer Code:</th>
+                            <td style="border:1px solid black; padding: 5px; width:50%"><span t-field="o.partner_id.ref"/></td>
+                        </tr>
+                        <tr>
+                            <th style="border:1px solid black; padding: 5px; width:50%">Reference:</th>
+                            <td style="border:1px solid black; padding: 5px; width:50%"><span t-field="o.reference"/></td>
+                        </tr>
+                    </table>
+                    <table style="width: 48%; float:left; border:1px solid black" t-if="o.has_mo_ids">
+                        <tr>
+                            <th style="border:1px solid black; padding: 5px; width:50%">Patient Name</th>
+                            <td style="border:1px solid black; padding: 5px; width:50%"><span t-field="o.patient_name"/></td>
+                        </tr>
+                        <tr>
+                            <th style="border:1px solid black; padding: 5px; width:50%">Patient Phone</th>
+                            <td style="border:1px solid black; padding: 5px; width:50%"><span t-field="o.patient_phone"/></td>
+                        </tr>
+                        <tr>
+                            <th style="border:1px solid black; padding: 5px; width:50%">Patient Age</th>
+                            <td style="border:1px solid black; padding: 5px; width:50%"><span t-field="o.patient_age"/></td>
+                        </tr>
+                        <tr>
+                            <th style="border:1px solid black; padding: 5px; width:50%">Patient File Number</th>
+                            <td style="border:1px solid black; padding: 5px; width:50%"><span t-field="o.num_file_patient"/></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <xpath expr="//table[1]/thead/tr/th[1]">
+                <th t-if="o.has_mo_ids" class="text-left">Teeth Number</th>
+                <th t-if="o.has_mo_ids" class="text-left">Color Number</th>
+                <th t-if="o.has_mo_ids" class="text-left">Tray In</th>
+                <th t-if="o.has_mo_ids" class="text-left">Delivery Date</th>
+            </xpath>
+            <xpath expr="//table[1]/tbody/t[2]/tr/t/td[1]">
+                <td t-if="o.has_mo_ids" class="text-center"><span t-field="line.teeth_num_ids"/></td>
+                <td t-if="o.has_mo_ids" class="text-center"><span t-field="line.color_num"/></td>
+                <td t-if="o.has_mo_ids" class="text-center"><span t-field="line.date_status"/></td>
+                <td t-if="o.has_mo_ids" class="text-center"><span t-field="line.date_delivery"/></td>
+            </xpath>
+        </template>
+    </data>
+</odoo>

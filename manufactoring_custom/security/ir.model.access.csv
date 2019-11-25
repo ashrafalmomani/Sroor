@@ -1,0 +1,11 @@
+"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+access_dental_user,dental user,model_dental,manufacturing_group_user,1,1,1,0
+access_dental_manager,dental manager,model_dental,manufacturing_group_manager,1,1,1,0
+access_mo_operations_user,mo_operations user,model_mo_operations,manufacturing_group_user,1,1,1,1
+access_mo_operations_manager,mo_operations manager,model_mo_operations,manufacturing_group_manager,1,1,1,1
+access_section_wizard_user,section_wizard user,model_section_wizard,manufacturing_group_user,1,1,1,1
+access_section_wizard_manager,section_wizard manager,model_section_wizard,manufacturing_group_manager,1,1,1,1
+access_section_user,section user,model_section,manufacturing_group_user,1,1,1,1
+access_section_manager,section manager,model_section,manufacturing_group_manager,1,1,1,1
+access_teeth_num,teeth_num,model_teeth_num,base.group_user,1,1,1,1
+access_sale_order,sale.order,model_sale_order,sales_team.group_sale_manager,1,1,1,0

@@ -6,21 +6,18 @@
         <field name="model">account.invoice</field>
         <field name="inherit_id" ref="account.invoice_form"/>
         <field name="arch" type="xml">
-            <xpath expr="//header" position="inside">
-                <button name="action_stock_transfer" string="Transfer" type="object"  class="oe_highlight"
-                     attrs="{'invisible':['|', ('state', '!=', 'open'), ('invoice_picking_id', '!=', False)]}"/>
-            </xpath>
             <xpath expr="//field[@name='date_due']" position="after">
-                <field name="picking_transfer_id"/>
+                <field name="picking_transfer_id" invisible="1"/>
                 <field name="invoice_picking_id" invisible="1"/>
             </xpath>
             <xpath expr="//sheet/div[1]" position="before">
                 <div class="oe_button_box" name="button_box">
                     <button type="object"
-                        name="action_view_picking" states="open,paid"
+                        name="action_view_picking"
                         class="oe_stat_button" attrs="{'invisible':[('picking_count', '=', 0)]}"
-                        icon="fa-truck">
-                        <field name="picking_count"  string="Shipment" widget="statinfo"/>
+                        icon="fa-truck"
+                        string="Shipment">
+                        <field name="picking_count" string="Shipment" widget="statinfo" invisible="1"/>
                     </button>
                 </div>
             </xpath>

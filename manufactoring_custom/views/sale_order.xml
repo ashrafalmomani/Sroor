@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="view_order_form_manufacturing" model="ir.ui.view">
+            <field name="name">sale.order.form.manufacturing</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//div[@name='button_box']" position="inside">
+                    <button name="manufacturing_orders" type="object" class="oe_stat_button"  string="Manufacturing Order"  icon="fa-book" states="sale"/>
+                </xpath>
+                <button name="%(sale.action_view_sale_advance_payment_inv)d" position = "attributes" >
+                     <attribute name="states">sale</attribute>
+                     <attribute name = "invisible">1</attribute>
+                </button>
+		        <xpath expr="//page[@name='other_information']" position="after">
+                    <page string="Materials To Return">
+                        <group>
+                            <group>
+                                <field name="model"/>
+                                <field name="tryy"/>
+                                <field name="bite"/>
+                            </group>
+                            <group>
+                                <field name="teeth"/>
+                                <field name="photos"/>
+                                <field name="face_bow"/>
+                                <field name="other"/>
+                                <field name="noteother" attrs="{'invisible':[('other','=', False)], 'required':[('other', '=', True)]}" />
+                            </group>
+                            <group>
+                                <field name="mother_model"/>
+                                <field name="impression"/>
+                                <field name="usb"/>
+                            </group>
+                        </group>
+                    </page>
+                </xpath>
+                <xpath expr="//form/sheet/notebook/page[1]" position="after">
+                    <page string="Info Patient" name="patient">
+                        <form>
+                            <sheet>
+                                <group>
+                                    <group>
+                                        <field name="patient_name" />
+                                        <field name="patient_age" />
+                                    </group>
+                                    <group>
+                                        <field name="patient_phone"/>
+                                        <field name="num_file_patient"/>
+                                    </group>
+                                    </group>
+                                <group>
+                                </group>
+                            </sheet>
+                        </form>
+                    </page>
+                </xpath>
+                <xpath expr="//field[@name='partner_id']" position="after">
+                    <field name="partner_address_phone"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_order_form_orders" model="ir.ui.view">
+            <field name="name">sale.order.form.sales</field>
+            <field name="model">dental</field>
+            <field name="inherit_id" ref="manufactoring_custom.dental_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//div[@name='button_box']" position="inside">
+                    <button name="sale_orders" type="object" class="oe_stat_button"  string="Sales Order"  icon="fa-book"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_sale_order" model="ir.ui.view">
+            <field name="name">view.sale.order</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <button name="action_cancel" position="attributes">
+                   <attribute name="groups">manufactoring_custom.group_sale_button_cancel</attribute>
+                </button>
+                <button name="action_done" position="attributes">
+                   <attribute name="groups">manufactoring_custom.group_sale_button_lock</attribute>
+                </button>
+            </field>
+        </record>
+
+        <record id="sale_order_view_inherit_dental_view" model="ir.ui.view">
+            <field name="name">sale.order.form.inherit.view</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='order_line']/tree/field[@name='product_uom_qty']" position="replace"/>
+                <xpath expr="//field[@name='order_line']/tree/field[@name='product_id']" position="after">
+                    <field name="product_note"/>
+                    <field name ="teeth_num_ids" widget="many2many_tags" required="1"/>
+                    <field name ="color_num"/>
+                    <field name="date_status"/>
+                    <field name="date_delivery"/>
+                    <field name="product_uom_qty" digits="[42, 0]"/>
+                </xpath>
+                <xpath expr="//field[@name='payment_term_id']" position="after">
+                    <field name="status_order"/>
+                </xpath>
+                <xpath expr="//field[@name='partner_address_phone']" position="after">
+                    <field name="customer_request_number"/>
+                </xpath>
+                <xpath expr="//field[@name='order_line']/tree/field[@name='name']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//field[@name='order_line']/tree/field[@name='product_uom']" position="attributes">
+                    <attribute name="readonly">1</attribute>
+                </xpath>
+                <xpath expr="//field[@name='order_line']/tree/field[@name='tax_id']" position="attributes">
+                    <attribute name="readonly">1</attribute>
+                </xpath>
+                <xpath expr="//group[@name='sale_shipping']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//group[@name='sales_person']//field[@name='company_id']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//group[@name='sales_person']//field[@name='require_payment']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//group[@name='sale_pay']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//field[@name='sale_order_option_ids']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//page[3]" position="attributes">
+                     <attribute name="invisible">1</attribute>
+                </xpath>
+            </field>
+        </record>
+
+	    <record id="invoice_order_view_inherit" model="ir.ui.view">
+            <field name="name">invoice.order.view.inherit</field>
+            <field name="model">account.invoice</field>
+            <field name="inherit_id" ref="account.invoice_form" />
+            <field name="arch" type="xml">
+                <xpath expr="//form/sheet/notebook/page[1]" position="after">
+                    <page string="Info Patient" name="patient"   >
+                        <form>
+                            <sheet>
+                                <group>
+                                    <field name="mo_ids" invisible="1"/>
+                                    <field name="has_mo_ids" invisible="1"/>
+                                    <group>
+                                        <field name="patient_name"  attrs="{'invisible': [('has_mo_ids','=', False)]}" />
+                                        <field name="patient_age"   attrs="{'invisible': [('has_mo_ids','=', False)]}"/>
+                                    </group>
+                                    <group>
+                                        <field name="patient_phone"   attrs="{'invisible': [('has_mo_ids','=', False)]}" />
+                                        <field name="num_file_patient" attrs="{'invisible': [('has_mo_ids','=', False)]}" />
+                                    </group>
+                                    </group>
+                                <group>
+                                </group>
+                            </sheet>
+                        </form>
+                    </page>
+                </xpath>
+                <xpath expr="//field[@name='invoice_line_ids']/tree/field[@name='product_id']" position="after">
+                    <field name ="teeth_num_ids" widget="many2many_tags"  attrs="{'column_invisible': [('parent.has_mo_ids','=', False)]}"/>
+                    <field name ="color_num"  attrs="{'column_invisible': [('parent.has_mo_ids','=', False)]}" />
+                    <field name="date_status" attrs="{'column_invisible': [('parent.has_mo_ids','=', False)]}" />
+                    <field name="date_delivery" attrs="{'column_invisible': [('parent.has_mo_ids','=', False)]}" />
+                </xpath>
+                <xpath expr="//field[@name='payment_term_id']" position="after">
+                    <field name="customer_request_number"   attrs="{'invisible': [('has_mo_ids','=', False)]}" />
+                    <field name="status_order"  attrs="{'invisible': [('has_mo_ids','=', False)]}"  />
+                </xpath>
+            </field>
+        </record>
+
+        <record id="sale.action_orders" model="ir.actions.act_window">
+            <field name="domain">[]</field>
+        </record>
+    </data>
+</odoo>

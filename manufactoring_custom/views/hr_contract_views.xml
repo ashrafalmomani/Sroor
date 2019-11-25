@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="hr_contract_view_form_dental" model="ir.ui.view">
+	    <field name="name">hr.contract.form.dental</field>
+	    <field name="model">hr.contract</field>
+        <field name="inherit_id" ref="hr_contract.hr_contract_view_form"/>
+        <field name="arch" type="xml">
+	        <xpath expr="//group[@name='salary_and_advantages']" position="after">
+                <group string="Allowances">
+                    <field name="transportation_allowance_value"/>
+                    <field name="housing_allowance_value"/>
+                    <field name="mobile_allowance_value"/>
+                    <field name="food_allowance_value"/>
+                    <field name="other_allowance_value"/>
+                </group>
+            </xpath>
+	        <xpath expr="//group[@name='salary_and_advantages']" position="inside">
+                <field name="total_salary"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>
