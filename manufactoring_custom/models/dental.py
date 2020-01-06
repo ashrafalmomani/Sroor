@@ -89,7 +89,6 @@ class ManufacturingDental(models.Model):
         line_values.append([0, False, values])
 
         invoice = invoice_obj.sudo().create({
-            'name': '',
             'origin': self.name,
             'name': self.number,
             'type': 'out_invoice',
@@ -207,6 +206,8 @@ class MOOperations(models.Model):
     user_id = fields.Many2one('res.users', 'Responsible', default=lambda self: self._uid)
     dental_id = fields.Many2one('dental')
     name = fields.Char("Name")
+    check_quality_transfer = fields.Selection([('invoice', 'Invoice'), ('try_in', 'Try In'),
+                                               ('return', 'Return'), ('cancel', 'Cancel')], track_visibility='onchange')
 
 
 class SectionWizard(models.TransientModel):
@@ -221,7 +222,7 @@ class SectionWizard(models.TransientModel):
     invoice_section = fields.Boolean(related='section_id.invoice_section')
     manager = fields.Many2one('res.users', string='Manager', default=_get_default_manager)
     check_quality_transfer = fields.Selection([('invoice', 'Invoice'), ('try_in', 'Try In'),
-                                               ('return', 'Return'), ('cancel', 'Cancel')], track_visibility='onchange')
+                                               ('return', 'Return'), ('cancel', 'Cancel')], 'Transfer reason', track_visibility='onchange')
 
     def confirm_transfer(self):
         active_id = self._context.get('active_id')
@@ -232,6 +233,8 @@ class SectionWizard(models.TransientModel):
 
         if self.check_quality_transfer:
             dental_id.state = 'to_invoice'
+        elif not self.check_quality_transfer:
+            dental_id.state = 'in_progress'
 
         if self.check_quality_transfer in ('return', 'cancel'):
             note = '( ' + self.check_quality_transfer + ' )' + self.note
@@ -239,6 +242,7 @@ class SectionWizard(models.TransientModel):
             note = self.note
         operation_id = self.env['mo.operations'].create({'section_to': self.section_id.name,
                                                          'section_from': dental_id.current_section_id.name,
+                                                         'check_quality_transfer': self.check_quality_transfer,
                                                          'note': note,
                                                          })
 
@@ -304,11 +308,13 @@ class InvoiceWizard(models.TransientModel):
         line_values = []
         mo_list_ids = []
         order_list = []
+        name = ''
 
         for rec in dental_ids:
             order_list.append(rec.order_id.id)
             partner_list.append(rec.partner_id.id)
             partner = rec.partner_id
+            name += rec.number + ','
 
         if len(list(set(partner_list))) != 1:
             raise UserError(_('You cant confirm multi order for different customer'))
@@ -346,8 +352,8 @@ class InvoiceWizard(models.TransientModel):
                 raise UserError(_('Please define an accounting sales journal for this company.'))
 
             invoice = invoice_obj.create({
-                'name': self.number,
-                'origin': 'Multi manufacturing order',
+                'origin': rec.name,
+                'name': name,
                 'type': 'out_invoice',
                 'account_id': partner.property_account_receivable_id.id,
                 'partner_id': partner.id,

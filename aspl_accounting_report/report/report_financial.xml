@@ -62,7 +62,6 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <t t-set="profit_total" t-value="0.0"/>
                                 <tr t-foreach="get_account_lines" t-as="a">
                                     <t t-if="a['level'] != 0">
                                         <t t-if="a.get('level') &gt; 3"><t t-set="style" t-value="'font-weight: normal;'"/></t>
@@ -73,17 +72,6 @@
                                         </td>
                                         <td class="text-right"><span t-att-style="style" t-esc="a.get('balance')" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}"/></td>
                                     </t>
-                                    <t t-if="a['level'] == 0">
-                                        <t t-set="profit_total" t-value="profit_total + a.get('balance')"/>
-                                    </t>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <span style="font-weight: bold;">Total Profit</span>
-                                    </td>
-                                    <td class="text-right">
-                                        <span style="font-weight: bold;" t-esc="profit_total"/>
-                                    </td>
                                 </tr>
                             </tbody>
                         </table>

@@ -120,12 +120,12 @@ class trial_balance_wiz(models.TransientModel):
             for each in report_data['Accounts']:
                 worksheet.write_merge(i, i, 0, 0, each['code'])
                 worksheet.write_merge(i, i, 1, 1, each['name'])
-                if self.include_init_balance:
+                if each.get('init_bal'):
                     worksheet.write_merge(i, i, 2, 2, '%.2f' %each['init_bal'],stylePC)
-                j = 3 if self.include_init_balance else 2
-                worksheet.write_merge(i, i, j, j, formatLang(self.env,float(each['debit'] or 0.0),currency_obj=self.env.user.company_id.currency_id), stylePC)
-                worksheet.write_merge(i, i, j+1,j+1, formatLang(self.env,float(each['credit'] or 0.0),currency_obj=self.env.user.company_id.currency_id), stylePC)
-                worksheet.write_merge(i, i, j+2, j+2,formatLang(self.env,float(each['balance']) or 0.0,currency_obj=self.env.user.company_id.currency_id) , stylePC)
+                j = 3 if each.get('init_bal') else 2
+                worksheet.write_merge(i, i, j, j, formatLang(self.env,float(each['debit']),currency_obj=self.env.user.company_id.currency_id), stylePC)
+                worksheet.write_merge(i, i, j+1,j+1, formatLang(self.env,float(each['credit']),currency_obj=self.env.user.company_id.currency_id), stylePC)
+                worksheet.write_merge(i, i, j+2, j+2,formatLang(self.env,float(each['balance']),currency_obj=self.env.user.company_id.currency_id) , stylePC)
                 i = i + 1
         file_data = io.BytesIO()
         workbook.save(file_data)

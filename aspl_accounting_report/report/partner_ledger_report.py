@@ -15,17 +15,15 @@ from odoo.exceptions import UserError
 from datetime import datetime
 from odoo.tools import DEFAULT_SERVER_DATE_FORMAT
 
-
 class report_general_ledger(models.AbstractModel):
     _name = 'report.aspl_accounting_report.partner_ledger_template'
-
+    
     def _lines(self, data, partner):
         full_account = []
         currency = self.env['res.currency']
         query_get_data = self.env['account.move.line'].with_context(data['form'].get('used_context', {}))._query_get()
         reconcile_clause = "" if data['form']['reconciled'] else ' AND "account_move_line".reconciled = false '
-        params = [partner.id, tuple(data['computed']['move_state']), tuple(data['computed']['account_ids'])] + \
-                 query_get_data[2]
+        params = [partner.id, tuple(data['computed']['move_state']), tuple(data['computed']['account_ids'])] + query_get_data[2]
         query = """
             SELECT "account_move_line".id, "account_move_line".date, j.code, acc.code as a_code, acc.name as a_name, "account_move_line".ref, m.name as move_name, "account_move_line".name, "account_move_line".debit, "account_move_line".credit, "account_move_line".amount_currency,"account_move_line".currency_id, c.symbol AS currency_code
             FROM """ + query_get_data[0] + """
@@ -55,7 +53,7 @@ class report_general_ledger(models.AbstractModel):
             r['currency_id'] = currency.browse(r.get('currency_id'))
             full_account.append(r)
         return full_account
-
+    
     def _sum_partner(self, data, partner, field):
         if field not in ['debit', 'credit', 'debit - credit']:
             return
@@ -63,8 +61,7 @@ class report_general_ledger(models.AbstractModel):
         query_get_data = self.env['account.move.line'].with_context(data['form'].get('used_context', {}))._query_get()
         reconcile_clause = "" if data['form']['reconciled'] else ' AND "account_move_line".reconciled = false '
 
-        params = [partner.id, tuple(data['computed']['move_state']), tuple(data['computed']['account_ids'])] + \
-                 query_get_data[2]
+        params = [partner.id, tuple(data['computed']['move_state']), tuple(data['computed']['account_ids'])] + query_get_data[2]
         query = """SELECT sum(""" + field + """)
                 FROM """ + query_get_data[0] + """, account_move AS m
                 WHERE "account_move_line".partner_id = %s
@@ -97,7 +94,7 @@ class report_general_ledger(models.AbstractModel):
             data['computed']['ACCOUNT_TYPE'] = ['receivable']
         else:
             data['computed']['ACCOUNT_TYPE'] = ['payable', 'receivable']
-
+        
         self.env.cr.execute("""
             SELECT a.id
             FROM account_account a
@@ -118,19 +115,9 @@ class report_general_ledger(models.AbstractModel):
                 AND NOT account.deprecated
                 AND """ + query_get_data[1] + reconcile_clause
         self.env.cr.execute(query, tuple(params))
-        domain = []
-        if data['partner_ids']:
-            domain.append(('id', 'in', data['partner_ids']))
-        elif data['partner_type']:
-            if data['partner_type']=='customer':
-                domain.append(('customer', '=', True))
-            elif data['partner_type']=='supplier':
-                domain.append(('supplier', '=', True))
-            else:
-                domain.append(('employee', '=', True))
-        else:
-            domain.append(('id', 'in', [res['partner_id'] for res in self.env.cr.dictfetchall()]))
-        partners = partner_obj.search(domain)
+        
+        partner_ids = [res['partner_id'] for res in self.env.cr.dictfetchall()]
+        partners = partner_obj.browse(partner_ids)
         partners = sorted(partners, key=lambda x: (x.ref or '', x.name or ''))
         return {
             'doc_ids': self.ids,
@@ -140,3 +127,4 @@ class report_general_ledger(models.AbstractModel):
             'lines': self._lines,
             'sum_partner': self._sum_partner,
         }
+        

@@ -26,7 +26,6 @@
     'data': [
         'security/ir.model.access.csv',
         'report/account_report.xml',
-        'report/customer_vendors_receivables.xml',
         'views/tax_report_template.xml',
         'views/trial_balance_template.xml',
         'views/aged_payble_template.xml',
@@ -37,7 +36,6 @@
         'wizard/trial_balance_wiz_view.xml',
         'wizard/aged_receivable_view.xml',
         'wizard/account_report_partner_ledger_view.xml',
-        'wizard/customer_vendor_receivable.xml',
         'views/account_pdf_reports.xml',
         'wizard/profit_and_loss.xml',
         'wizard/balance_sheet.xml',

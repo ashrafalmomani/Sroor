@@ -6,7 +6,7 @@ from odoo import api, fields, models, _
 class ProductPack(models.Model):
     _name = 'product.pack'
 
-    product_id = fields.Many2one(comodel_name='product.product', string='Product', required=True)
+    product_id = fields.Many2one(comodel_name='product.product', string='Product', required=True,domain=[('type','=','product')])
     qty_uom = fields.Float(string='Quantity', required=True, defaults=1.0)
     bi_product_template = fields.Many2one(comodel_name='product.template', string='Product pack')
     bi_image = fields.Binary(related='product_id.image_medium', string='Image', store=True)

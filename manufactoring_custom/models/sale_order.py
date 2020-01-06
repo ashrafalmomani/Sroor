@@ -8,6 +8,19 @@ from odoo.exceptions import UserError
 class SaleOrder(models.Model):
     _inherit = 'sale.order'
 
+    def _compute_invoice_state(self):
+        for rec in self:
+            total = 0.0
+            if not rec.invoice_ids:
+                rec.invoice_state = 'no'
+            else:
+                for inv in rec.invoice_ids:
+                    total += inv.amount_total
+                if total == rec.amount_total:
+                    rec.invoice_state = 'invoiced'
+                else:
+                    rec.invoice_state = 'to invoice'
+
     model = fields.Boolean(string='Model')
     tryy = fields.Boolean(string='Try')
     bite = fields.Boolean(string='Bite')
@@ -28,6 +41,10 @@ class SaleOrder(models.Model):
     patient_phone = fields.Char(string='Patient Phone')
     status_order = fields.Selection([('urgent', 'Urgent'), ('not_urgent', ' Not Urgent')], default='not_urgent', required=1)
     customer_request_number = fields.Char(string='Customer Requset Number')
+    invoice_state = fields.Selection([('invoiced', 'Fully Invoiced'),
+                                      ('to invoice', 'To Invoice'),
+                                      ('no', 'Nothing to Invoice')], 'Invoice State', store=True,
+                                     compute='_compute_invoice_state', default='no')
 
     @api.multi
     def action_confirm(self):
@@ -73,7 +90,7 @@ class SaleOrderLines(models.Model):
     date_status = fields.Date('Try In')
     date_delivery = fields.Date('Delivery Date')
     teeth_num_ids = fields.Many2many('teeth.num', string="Teeth Num")
-    color_num = fields.Selection([('none', 'None'), ('0M1', '0M1'), ('0M2', '0M2'), ('0M3', '0M3'), ('1M1', '1M1'), ('1M2', '1M2'), ('1M3', '1M3'),('2M0', '2M0'), ('2M1', ' 2M1'), ('2M2', ' 2M2'), ('3M0', '3M0'), ('3M1', '3M1'), ('A1', 'A1'), ('A2', 'A2'), ('A3', 'A3'), ('A3.5', 'A3.5'),('A4', 'A4'), ('B1', 'B1'), ('B2', 'B2'), ('B3', 'B3'), ('B4', 'B4'), ('C1', 'C1'), ('C2', ' C2'), ('C3', 'C3'),('C4', 'C4'), ('D2', 'D2'), ('D3', 'D3'), ('D4', 'D4'), ('45', '45')], default='none', required=1)
+    color_num = fields.Selection([('none', 'None'), ('0M1', '0M1'), ('0M2', '0M2'), ('0M3', '0M3'), ('1M1', '1M1'), ('1M2', '1M2'), ('1M3', '1M3'),('2M0', '2M0'), ('2M1', ' 2M1'), ('2M2', ' 2M2'), ('3M0', '3M0'), ('3M1', '3M1'), ('A1', 'A1'), ('A2', 'A2'), ('A3', 'A3'), ('A3.5', 'A3.5'),('A4', 'A4'), ('B1', 'B1'), ('B2', 'B2'), ('B3', 'B3'), ('B4', 'B4'), ('C1', 'C1'), ('C2', ' C2'), ('C3', 'C3'),('C4', 'C4'), ('D2', 'D2'), ('D3', 'D3'), ('D4', 'D4'), ('45', '45'), ('3 M3', '3 M3'), ('2 M3', '2 M3')], default='none', required=1)
     product_note = fields.Char('Note')
     num_days = fields.Char('number of day')
 
@@ -97,7 +114,7 @@ class AccountInvoiceLine(models.Model):
     date_status = fields.Date('Try In')
     date_delivery = fields.Date('Delivery Date')
     teeth_num_ids = fields.Many2many('teeth.num', string="Teeth Num")
-    color_num = fields.Selection([('none', 'None'), ('0M1', '0M1'), ('0M2', '0M2'), ('0M3', '0M3'), ('1M1', '1M1'), ('1M2', '1M2'), ('1M3', '1M3'),('2M0', '2M0'), ('2M1', ' 2M1'), ('2M2', ' 2M2'), ('3M0', '3M0'), ('3M1', '3M1'), ('A1', 'A1'), ('A2', 'A2'), ('A3', 'A3'), ('A3.5', 'A3.5'),('A4', 'A4'), ('B1', 'B1'), ('B2', 'B2'), ('B3', 'B3'), ('B4', 'B4'), ('C1', 'C1'), ('C2', ' C2'), ('C3', 'C3'),('C4', 'C4'), ('D2', 'D2'), ('D3', 'D3'), ('D4', 'D4'), ('45', '45')], default='none', required=1)
+    color_num = fields.Selection([('none', 'None'), ('0M1', '0M1'), ('0M2', '0M2'), ('0M3', '0M3'), ('1M1', '1M1'), ('1M2', '1M2'), ('1M3', '1M3'),('2M0', '2M0'), ('2M1', ' 2M1'), ('2M2', ' 2M2'), ('3M0', '3M0'), ('3M1', '3M1'), ('A1', 'A1'), ('A2', 'A2'), ('A3', 'A3'), ('A3.5', 'A3.5'),('A4', 'A4'), ('B1', 'B1'), ('B2', 'B2'), ('B3', 'B3'), ('B4', 'B4'), ('C1', 'C1'), ('C2', ' C2'), ('C3', 'C3'),('C4', 'C4'), ('D2', 'D2'), ('D3', 'D3'), ('D4', 'D4'), ('45', '45'), ('3 M3', '3 M3'), ('2 M3', '2 M3')], default='none', required=1)
 
 
 class AccountInvoice(models.Model):

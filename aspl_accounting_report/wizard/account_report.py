@@ -98,7 +98,7 @@ class AccountingReport(models.TransientModel):
         datas['label_filter'] = self.label_filter
         datas['target_move'] = self.target_move
         datas['used_context'] = {
-            'company_id':1,
+            'company_id':self.env.user.company_id.id,
             'date_from':str(self.date_from) if self.date_from else False,
             'date_to':str(self.date_to) if self.date_to else False,
             'journal_ids':False,

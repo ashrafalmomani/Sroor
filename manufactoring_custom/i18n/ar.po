@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-21 15:41+0000\n"
-"PO-Revision-Date: 2019-11-21 15:41+0000\n"
+"POT-Creation-Date: 2019-12-15 11:56+0000\n"
+"PO-Revision-Date: 2019-12-15 11:56+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -263,6 +263,7 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:manufactoring_custom.dental_form_view
 #: model_terms:ir.ui.view,arch_db:manufactoring_custom.multi_shipment_confirm_view_wiz
 #: model_terms:ir.ui.view,arch_db:manufactoring_custom.view_section_wizard
+#: selection:mo.operations,check_quality_transfer:0
 #: selection:section.wizard,check_quality_transfer:0
 msgid "Cancel"
 msgstr "إلغاء"
@@ -275,7 +276,7 @@ msgid "Cercon"
 msgstr "الزيركون"
 
 #. module: manufactoring_custom
-#: model:ir.model.fields,field_description:manufactoring_custom.field_section_wizard__check_quality_transfer
+#: model:ir.model.fields,field_description:manufactoring_custom.field_mo_operations__check_quality_transfer
 msgid "Check Quality Transfer"
 msgstr "سبب التحويل"
 
@@ -323,6 +324,11 @@ msgstr "الإعدادات"
 #: model_terms:ir.ui.view,arch_db:manufactoring_custom.multi_shipment_confirm_view_wiz
 msgid "Confirm"
 msgstr "تأكيد"
+
+#. module: manufactoring_custom
+#: sql_constraint:product.pricelist.item:0
+msgid "Constraints with the same product in the same pricelist."
+msgstr ""
 
 #. module: manufactoring_custom
 #: model:ir.model,name:manufactoring_custom.model_res_partner
@@ -463,7 +469,7 @@ msgstr "دكتور"
 #. module: manufactoring_custom
 #: model:ir.model.fields,field_description:manufactoring_custom.field_sale_order__partner_id
 msgid "Doctor Name"
-msgstr "اسم الدكتور"
+msgstr ""
 
 #. module: manufactoring_custom
 #: model:ir.model.fields,field_description:manufactoring_custom.field_account_invoice__doc_order_number
@@ -482,6 +488,11 @@ msgstr "رقم التلفون"
 #: selection:section,section_type:0
 msgid "E-Max"
 msgstr "اي -ماكس"
+
+#. module: manufactoring_custom
+#: model:ir.model,name:manufactoring_custom.model_hr_employee
+msgid "Employee"
+msgstr "الموظف"
 
 #. module: manufactoring_custom
 #: model:ir.model,name:manufactoring_custom.model_hr_contract
@@ -525,6 +536,11 @@ msgstr "طعام"
 #: model:hr.salary.rule,name:manufactoring_custom.hr_rule_food
 msgid "Food Allowance"
 msgstr "بدل الطعام"
+
+#. module: manufactoring_custom
+#: selection:sale.order,invoice_state:0
+msgid "Fully Invoiced"
+msgstr "مفوتر بالكامل"
 
 #. module: manufactoring_custom
 #: model:ir.actions.act_window,name:manufactoring_custom.dental_view_gypsum_actions
@@ -598,7 +614,7 @@ msgstr " قيد التصنيع"
 
 #. module: manufactoring_custom
 #: model_terms:ir.ui.view,arch_db:manufactoring_custom.invoice_order_view_inherit
-#: model_terms:ir.ui.view,arch_db:manufactoring_custom.view_order_form_manufacturing
+#: model_terms:ir.ui.view,arch_db:manufactoring_custom.sale_order_view_inherit_dental_view
 msgid "Info Patient"
 msgstr "معلومات المريض"
 
@@ -607,6 +623,7 @@ msgstr "معلومات المريض"
 #: model:ir.model,name:manufactoring_custom.model_account_invoice
 #: model:ir.model.fields,field_description:manufactoring_custom.field_dental__invoice_id
 #: model_terms:ir.ui.view,arch_db:manufactoring_custom.dental_form_view
+#: selection:mo.operations,check_quality_transfer:0
 #: selection:section.wizard,check_quality_transfer:0
 msgid "Invoice"
 msgstr "الفاتورة"
@@ -631,6 +648,11 @@ msgstr "فوترة الطلبيات"
 #: model:ir.model.fields,field_description:manufactoring_custom.field_section_wizard__invoice_section
 msgid "Invoice Section?"
 msgstr "هل هو قسم الفوترة"
+
+#. module: manufactoring_custom
+#: model:ir.model.fields,field_description:manufactoring_custom.field_sale_order__invoice_state
+msgid "Invoice State"
+msgstr "حالة الفاتورة"
 
 #. module: manufactoring_custom
 #: selection:dental,state:0
@@ -705,13 +727,18 @@ msgid "Manufacturing"
 msgstr "التصنيع"
 
 #. module: manufactoring_custom
+#: model:res.groups,name:manufactoring_custom.group_manufacturing_buttons
+msgid "Manufacturing Buttons"
+msgstr ""
+
+#. module: manufactoring_custom
 #: model:ir.actions.report,name:manufactoring_custom.manufacturing_report
-#: model_terms:ir.ui.view,arch_db:manufactoring_custom.view_order_form_manufacturing
+#: model_terms:ir.ui.view,arch_db:manufactoring_custom.sale_order_view_inherit_dental_view
 msgid "Manufacturing Order"
 msgstr "طباعة طللبية التصنيع"
 
 #. module: manufactoring_custom
-#: code:addons/manufactoring_custom/models/sale_order.py:57
+#: code:addons/manufactoring_custom/models/sale_order.py:74
 #, python-format
 msgid "Manufacturing Orders"
 msgstr "'طلبيات التصنيع"
@@ -722,7 +749,7 @@ msgid "Manufacturing orders"
 msgstr "طلبيات التصنيع"
 
 #. module: manufactoring_custom
-#: model_terms:ir.ui.view,arch_db:manufactoring_custom.view_order_form_manufacturing
+#: model_terms:ir.ui.view,arch_db:manufactoring_custom.sale_order_view_inherit_dental_view
 msgid "Materials To Return"
 msgstr "  مواد المستلمة"
 
@@ -799,7 +826,7 @@ msgid "Next Activity Type"
 msgstr "نوع النشاط التالي"
 
 #. module: manufactoring_custom
-#: code:addons/manufactoring_custom/models/sale_order.py:36
+#: code:addons/manufactoring_custom/models/sale_order.py:53
 #, python-format
 msgid "No lines found to create manufacturing order."
 msgstr "لم يتم العثور على طلبات لإنشاء أمر التصنيع"
@@ -820,6 +847,11 @@ msgstr "لا يوجد"
 #: model_terms:ir.ui.view,arch_db:manufactoring_custom.report_saleorder_customized
 msgid "Note"
 msgstr "ملاحظة"
+
+#. module: manufactoring_custom
+#: selection:sale.order,invoice_state:0
+msgid "Nothing to Invoice"
+msgstr "في انتظار الفوترة"
 
 #. module: manufactoring_custom
 #: model:ir.model.fields,field_description:manufactoring_custom.field_dental__number
@@ -898,7 +930,7 @@ msgstr "الطلبيات"
 #: model:ir.model.fields,field_description:manufactoring_custom.field_hr_contract__other_allowance_value
 #: model:ir.model.fields,field_description:manufactoring_custom.field_sale_order__other
 msgid "Other"
-msgstr "اخرى"
+msgstr ""
 
 #. module: manufactoring_custom
 #: model:hr.salary.rule,name:manufactoring_custom.hr_rule_other
@@ -963,23 +995,28 @@ msgid "Planned"
 msgstr "التخطيط"
 
 #. module: manufactoring_custom
-#: code:addons/manufactoring_custom/models/dental.py:229
+#: code:addons/manufactoring_custom/models/dental.py:232
 #, python-format
 msgid "Please define an Another section"
 msgstr "يرجى تحديد قسم آخر"
 
 #. module: manufactoring_custom
 #: code:addons/manufactoring_custom/models/dental.py:68
-#: code:addons/manufactoring_custom/models/dental.py:344
+#: code:addons/manufactoring_custom/models/dental.py:352
 #, python-format
 msgid "Please define an accounting sales journal for this company."
-msgstr "يرجى تحديد يومية مبيعات لهذه الشركة"
+msgstr ""
 
 #. module: manufactoring_custom
 #: model:ir.actions.act_window,name:manufactoring_custom.dental_view_porcelain_actions
 #: model:ir.ui.menu,name:manufactoring_custom.menu_manufacturing_orders_porcelain
 msgid "Porcelain"
 msgstr "البورسلين"
+
+#. module: manufactoring_custom
+#: model:ir.model,name:manufactoring_custom.model_product_pricelist_item
+msgid "Pricelist Item"
+msgstr "عنصر قائمة الأسعار"
 
 #. module: manufactoring_custom
 #: model:ir.model,name:manufactoring_custom.model_product_product
@@ -1018,6 +1055,7 @@ msgstr "المستخدم المسئول"
 
 #. module: manufactoring_custom
 #: model_terms:ir.ui.view,arch_db:manufactoring_custom.dental_form_view
+#: selection:mo.operations,check_quality_transfer:0
 #: selection:section.wizard,check_quality_transfer:0
 msgid "Return"
 msgstr "الترجيع"
@@ -1036,10 +1074,10 @@ msgstr "أمر البيع"
 #. module: manufactoring_custom
 #: model:ir.model.fields,field_description:manufactoring_custom.field_dental__name
 msgid "Sale Order #"
-msgstr "رقم امر المبيعات"
+msgstr ""
 
 #. module: manufactoring_custom
-#: code:addons/manufactoring_custom/models/dental.py:184
+#: code:addons/manufactoring_custom/models/dental.py:185
 #, python-format
 msgid "Sale Orders"
 msgstr "أوامر البيع"
@@ -1089,7 +1127,7 @@ msgid "Section to"
 msgstr "الي مرحلة"
 
 #. module: manufactoring_custom
-#: code:addons/manufactoring_custom/models/dental.py:172
+#: code:addons/manufactoring_custom/models/dental.py:173
 #, python-format
 msgid "Section wizard"
 msgstr "النقل بين الأقسام"
@@ -1248,6 +1286,7 @@ msgstr ""
 
 #. module: manufactoring_custom
 #: selection:dental,state:0
+#: selection:sale.order,invoice_state:0
 msgid "To Invoice"
 msgstr "للفوترة"
 
@@ -1271,7 +1310,12 @@ msgstr "اجمالي الراتب"
 #: model_terms:ir.ui.view,arch_db:manufactoring_custom.dental_form_view
 #: model_terms:ir.ui.view,arch_db:manufactoring_custom.view_section_wizard
 msgid "Transfer"
-msgstr "نقل"
+msgstr "الشحنة"
+
+#. module: manufactoring_custom
+#: model:ir.model.fields,field_description:manufactoring_custom.field_section_wizard__check_quality_transfer
+msgid "Transfer reason"
+msgstr ""
 
 #. module: manufactoring_custom
 #: model:ir.model.fields,field_description:manufactoring_custom.field_hr_contract__transportation_allowance_value
@@ -1299,6 +1343,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:manufactoring_custom.field_dental__date_status
 #: model:ir.model.fields,field_description:manufactoring_custom.field_sale_order_line__date_status
 #: model_terms:ir.ui.view,arch_db:manufactoring_custom.report_manufacturing_document
+#: selection:mo.operations,check_quality_transfer:0
 #: selection:section.wizard,check_quality_transfer:0
 msgid "Try In"
 msgstr "للتجربة"
@@ -1376,25 +1421,25 @@ msgid "You can find a customer by its Name, TIN, Email or Internal Reference."
 msgstr "يمكنك ايجاد العميل بواسطة الاسم، أو الرقم التعريفي لدافع الضرائب TIN، أو البريد الالكتروني، أو بواسطة مرجع داخلي."
 
 #. module: manufactoring_custom
-#: code:addons/manufactoring_custom/models/dental.py:312
+#: code:addons/manufactoring_custom/models/dental.py:320
 #, python-format
 msgid "You cant confirm multi order for different customer"
 msgstr "لا يمكنك تأكيد النظام المتعدد للعملاء المختلفين"
 
 #. module: manufactoring_custom
-#: code:addons/manufactoring_custom/models/dental.py:315
+#: code:addons/manufactoring_custom/models/dental.py:323
 #, python-format
 msgid "You cant confirm multi order for different sale order"
 msgstr "لا يمكنك اصدار فواتير لطلبات بيع مختلفة"
 
 #. module: manufactoring_custom
-#: code:addons/manufactoring_custom/models/dental.py:339
+#: code:addons/manufactoring_custom/models/dental.py:347
 #, python-format
 msgid "You cant create invoice because one of the already invoiced"
 msgstr "لا يمكنك اصدار فاتورة لان احد الطلبات تم فوترته مسبقا"
 
 #. module: manufactoring_custom
-#: code:addons/manufactoring_custom/models/dental.py:134
+#: code:addons/manufactoring_custom/models/dental.py:135
 #, python-format
 msgid "You cant return paid invoice"
 msgstr "لا يمكنك ارجاع فاتورة مدفوعة"
@@ -1443,3 +1488,4 @@ msgstr "الاقسام"
 #: model:ir.model,name:manufactoring_custom.model_teeth_num
 msgid "teeth number"
 msgstr "رقم السن"
+

@@ -42,11 +42,11 @@
             <field name="arch" type="xml">
                 <form string="" create="false" edit="false">
                     <header>
-                        <button name="confirm" type="object" states="draft" string="Confirm" class="oe_highlight"/>
-                        <button name="action_return" type="object" states="invoice" string="Return" class="oe_highlight"/>
-                        <button name="action_invoice" type="object" states="to_invoice" string="Invoice" class="oe_highlight"/>
-                        <button name="action_cancel_so" type="object" states="to_invoice" string="Cancel" class="oe_highlight"/>
-                        <button name="transfer" type="object" string="Transfer" class="oe_highlight" states="in_progress,to_invoice"/>
+                        <button name="confirm" type="object" states="draft" string="Confirm" class="oe_highlight" groups="manufactoring_custom.group_manufacturing_buttons"/>
+                        <button name="action_return" type="object" states="invoice" string="Return" class="oe_highlight" groups="manufactoring_custom.group_manufacturing_buttons"/>
+                        <button name="action_invoice" type="object" states="to_invoice" string="Invoice" class="oe_highlight" groups="manufactoring_custom.group_manufacturing_buttons"/>
+                        <button name="action_cancel_so" type="object" states="to_invoice" string="Cancel" class="oe_highlight" groups="manufactoring_custom.group_manufacturing_buttons"/>
+                        <button name="transfer" type="object" string="Transfer" class="oe_highlight" states="in_progress,to_invoice" groups="manufactoring_custom.group_manufacturing_buttons"/>
                         <field name="state" widget="statusbar" statusbar_visible="draft,in_progress,to_invoice,invoice,cancel"/>
                     </header>
                     <sheet>
@@ -91,7 +91,9 @@
                                         <field name="section_from"/>
                                         <field name="section_to"/>
                                         <field name="date"/>
+                                        <field name="write_date"/>
                                         <field name="user_id"/>
+                                        <field name="check_quality_transfer"/>
                                         <field name="note"/>
                                     </tree>
                                 </field>

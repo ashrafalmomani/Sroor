@@ -4,27 +4,25 @@
 		<t t-call="web.html_container">
 			<t t-call="web.external_layout">
 				<div class="page">
-<h2 class="text-center">Account Statement</h2>
-                    <div class="row mt32" style="padding-bottom:20px">
-						<t>
-							<div class="col-4">
-								<strong>Target Moves:</strong>
-								<p t-if="data['form']['target_move'] == 'all'">All Entries</p>
-								<p t-if="data['form']['target_move'] == 'posted'">All Posted Entries</p>
-							</div>
-						</t>
-						<t t-if="data['form']['date_from']">
-							<div class="col-4" >
-								<strong>Date from :</strong>
-								<span t-esc="data['form']['date_from']" />
-							</div>
-						</t>
-						<t t-if="data['form']['date_to']">
-							<div class="col-4">
-								<strong>Date to :</strong>
-								<span t-esc="data['form']['date_to']" />
-							</div>
-						</t>
+					<h2>Partner Ledger</h2>
+					<div class="row mt32 mb32">
+						<div t-if="data['form']['date_from']" class="col-2">
+							<strong>Date from:</strong> <br/>
+							<span t-esc="data['form']['date_from']"/>
+						</div>
+						<div t-if="data['form']['date_to']" class="col-2">
+							<strong>Date To:</strong> <br/>
+							<span t-esc="data['form']['date_to']"/>
+						</div>
+						<div class="col-2">
+							<strong>Date: </strong> <br/>
+							<span t-esc="context_timestamp(datetime.datetime.now()).strftime('%m/%d/%Y %H:%M:%S')"/>
+						</div>
+						<div class="col-2">
+							<strong>Target Move:</strong> <br/>
+							<span t-if="data['form']['target_move'] == 'all'">All Entries</span>
+							<span t-if="data['form']['target_move'] == 'posted'">All Posted Entries</span>
+						</div>
 					</div>
 					<table class="table table-condensed">
 						<thead>

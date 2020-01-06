@@ -45,35 +45,46 @@ class report_trial_balance(models.AbstractModel):
             result = [0.0, 0.0, 0.0]
         return result
 
-    def _get_accounts(self, accounts, display_account):
-        """ compute the balance, debit and credit for the provided accounts
-            :Arguments:
-                `accounts`: list of accounts record,
-                `display_account`: it's used to display either all accounts or those accounts which balance is > 0
-            :Returns a list of dictionary of Accounts with following key and value
-                `name`: Account name,
-                `code`: Account code,
-                `credit`: total amount of credit,
-                `debit`: total amount of debit,
-                `balance`: total amount of balance,
-        """
-
+    @api.model
+    def _get_report_values(self, docids, data=None):
+        if not data.get('form') or not self.env.context.get('active_model'):
+            raise UserError(_("Form content is missing, this report cannot be printed."))
+ 
         account_result = {}
-        # Prepare sql query base on selected parameters from wizard
-        tables, where_clause, where_params = self.env['account.move.line']._query_get()
-        tables = tables.replace('"','')
-        if not tables:
-            tables = 'account_move_line'
-        wheres = [""]
-        if where_clause.strip():
-            wheres.append(where_clause.strip())
-        filters = " AND ".join(wheres)
-        # compute the balance, debit and credit for the provided accounts
-        request = ("SELECT account_id AS id, SUM(debit) AS debit, SUM(credit) AS credit, (SUM(debit) - SUM(credit)) AS balance" +\
-                   " FROM " + tables + " WHERE account_id IN %s " + filters + " GROUP BY account_id")
-        params = (tuple(accounts.ids),) + tuple(where_params)
-        self.env.cr.execute(request, params)
-        for row in self.env.cr.dictfetchall():
+        self.model = self.env.context.get('active_model')
+        docs = self.env[self.model].browse(self.env.context.get('active_ids', []))
+        display_account = data['form'].get('display_account') 
+        accounts = self.env['account.account'].search([])
+        date_from = data.get('form') and data.get('form').get('date_from')
+        date_to = data.get('form') and data.get('form').get('date_to')
+        state = data['form'] and data['form']['target_move']
+        
+        SQL = """ 
+            SELECT 
+              am.id as move_id, 
+              am.date as date, 
+              aml.debit as debit, 
+              aml.credit as credit,
+              aml.balance as balance,
+              aml.account_id as id
+            FROM 
+              account_move as am, 
+              account_move_line as aml"""
+        where_clause = """
+            WHERE 
+              am.id = aml.move_id AND
+              aml.account_id in %s
+        """% (" (%s) " % ','.join(map(str, accounts.ids)))
+
+        if date_from:
+            where_clause += "AND am.date >= '%s' "% (date_from)
+        if date_to:
+            where_clause += "AND am.date <= '%s' "% (date_to)
+        if state and state == 'posted':
+            where_clause += "AND am.state = '%s' "% (state)
+        self.env.cr.execute(SQL + where_clause)
+        res = self.env.cr.dictfetchall()
+        for row in res:
             account_result[row.pop('id')] = row
 
         account_res = []
@@ -82,46 +93,10 @@ class report_trial_balance(models.AbstractModel):
             currency = account.currency_id and account.currency_id or account.company_id.currency_id
             res['code'] = account.code
             res['name'] = account.name
-            if account.id in account_result:
+            if account.id in account_result.keys():
                 res['debit'] = account_result[account.id].get('debit')
                 res['credit'] = account_result[account.id].get('credit')
                 res['balance'] = account_result[account.id].get('balance')
-            if display_account == 'all':
-                account_res.append(res)
-            if display_account == 'not_zero' and not currency.is_zero(res['balance']):
-                account_res.append(res)
-            if display_account == 'movement' and (not currency.is_zero(res['debit']) or not currency.is_zero(res['credit'])):
-                account_res.append(res)
-        return account_res
-
-    @api.model
-    def _get_report_values(self, docids, data=None):
-        if not data.get('form') or not self.env.context.get('active_model'):
-            raise UserError(_("Form content is missing, this report cannot be printed."))
-
-        self.model = self.env.context.get('active_model')
-        docs = self.env[self.model].browse(self.env.context.get('active_ids', []))
-        display_account = data['form'].get('display_account')
-        accounts = docs if self.model == 'account.account' else self.env['account.account'].search([])
-        date_from = data.get('form') and data.get('form').get('date_from')
-        date_to = data.get('form') and data.get('form').get('date_to')
-        state = data['form'] and data['form']['target_move']
-        res = self.with_context(date_from=date_from, date_to=date_to, state=state)._get_accounts(accounts, display_account)
-        account_result = {}
-        for row in res:
-            account_result[row.pop('name')] = row
- 
-        account_res = []
-        for account in accounts:
-            res = dict((fn, 0.0) for fn in ['credit', 'debit', 'balance'])
-            currency = account.currency_id and account.currency_id or account.company_id.currency_id
-            res['code'] = account.code
-            res['name'] = account.name
-            if account.name in account_result.keys():
-                res['id'] =account.id
-                res['debit'] = account_result[account.name].get('debit')
-                res['credit'] = account_result[account.name].get('credit')
-                res['balance'] = account_result[account.name].get('balance')
             if date_from and data['form'] and data['form']['include_init_balance']:
                 init_bal = self._get_init_bal(date_from, account.company_id.id, account.id)
                 res['init_bal'] = init_bal[2]
@@ -131,10 +106,11 @@ class report_trial_balance(models.AbstractModel):
                 account_res.append(res)
             if display_account == 'movement' and (not currency.is_zero(res['debit']) or not currency.is_zero(res['credit'])):
                 account_res.append(res)
+
         return {
             'doc_ids': self.ids,
             'doc_model': self.model,
-            'data': data['form'],
+            'data': data,
             'docs': docs,
             'time': time,
             'Accounts': account_res,
