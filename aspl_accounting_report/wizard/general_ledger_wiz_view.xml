@@ -21,6 +21,9 @@
             <group states="choose">
                 <field name="journal_ids" widget="many2many_tags" options="{'no_create': True}"/>
             </group>
+            <group states="choose">
+                <field name="account_ids" invisible="1" widget="many2many_tags" options="{'no_create': True}"/>
+            </group>
             <div states="get">
                <h2>Report Complete</h2>
                <p>Here is the Xls File :
@@ -43,11 +46,14 @@
         <field name="view_mode">form</field>
         <field name="view_id" ref="general_ledger_report_wiz_view"/>
         <field name="target">new</field>
+        <field name="binding_model_id" ref="account.model_account_account" />
+        <field name="binding_type">report</field>
     </record>
 
     <menuitem id="menu_action_general_ledger_report_wiz"
-              name="General Ledger" action="action_general_ledger_report_wiz"
+              name="General Ledger"
+              action="action_general_ledger_report_wiz"
               parent="account.menu_finance_reports" 
-groups="account.group_account_user"/>
+              groups="account.group_account_user"/>
 
 </odoo>

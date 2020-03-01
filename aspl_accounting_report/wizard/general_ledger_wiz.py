@@ -26,6 +26,10 @@ class account_general_ledger_wiz(models.TransientModel):
     data = fields.Binary(string="Data")
     state = fields.Selection([('choose', 'choose'), ('get', 'get')], default='choose')
     name = fields.Char(string='File Name', readonly=True)
+    account_ids = fields.Many2many('account.account', 'account_report_general_ledger_account_rel', 'report_id',
+                                   'account_id', string='Accounts',
+                                   default=lambda self: self.env['account.account'].search([
+                                       ('id', 'in', self._context.get('active_ids'))]))
 
     def print_pdf(self, data):
         data = {}

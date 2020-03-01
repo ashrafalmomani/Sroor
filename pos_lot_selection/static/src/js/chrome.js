@@ -25,8 +25,7 @@ odoo.define("pos_lot_selection.chrome", function (require) {
                 var $option = this.$("select.packlot-line-select option");
                 var $input = this.$el.find("input[cid='" + this.active_cid + "']");
                 if ($input.length) {
-//                    $input[0].value = $select[0].value;
-                    $input[0].value = $select[0].value.split("[")[0].split(":")[1];
+                    $input[0].value = $select[0].value;
                     $input.focus();
                 }
                 $option.prop('selected', function () {

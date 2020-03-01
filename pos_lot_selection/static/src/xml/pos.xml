@@ -7,12 +7,12 @@
     <t t-extend="PackLotLinePopupWidget">
         <t t-jquery=".title" t-operation="append">
             <div class="packlot-select">
-                <t t-if="widget.options.pack_lot_lines and widget.options.pack_lot_lines.lot_name">
+                <t t-if="widget.options.pack_lot_lines and widget.options.pack_lot_lines.lot_objects">
                     <select class="packlot-line-select">
                         <option disabled="" selected="" value="">Select a Serial/Lot Number</option>
-                        <t t-foreach="widget.options.pack_lot_lines.lot_name" t-as="lot_name">
-                            <option t-att-value="lot_name">
-                           <t t-esc="lot_name"/>
+                        <t t-foreach="widget.options.pack_lot_lines.lot_objects" t-as="lot_obj">
+                            <option t-att-value="lot_obj.name">
+                                Name: <t t-esc="lot_obj.name"/>  Qty: <t t-esc="lot_obj.qty"/>
                             </option>
                         </t>
                     </select>

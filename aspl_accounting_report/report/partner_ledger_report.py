@@ -17,7 +17,7 @@ from odoo.tools import DEFAULT_SERVER_DATE_FORMAT
 
 class report_general_ledger(models.AbstractModel):
     _name = 'report.aspl_accounting_report.partner_ledger_template'
-    
+
     def _lines(self, data, partner):
         full_account = []
         currency = self.env['res.currency']
@@ -53,10 +53,48 @@ class report_general_ledger(models.AbstractModel):
             r['currency_id'] = currency.browse(r.get('currency_id'))
             full_account.append(r)
         return full_account
-    
+
+    def _line_big(self, data, partner):
+        partne_move_lines = self.env['account.move.line'].search(
+            [('partner_id','=',partner.id),
+             ('account_id.internal_type', 'in', ('receivable', 'payable')),
+             ('date', '<', data['form']['date_from'])])
+
+        big_sum = 0.0
+        for rec in partne_move_lines:
+            if rec.debit > 0.0:
+                big_sum += rec.debit
+            else:
+                big_sum -= rec.credit
+        return big_sum
+
     def _sum_partner(self, data, partner, field):
         if field not in ['debit', 'credit', 'debit - credit']:
-            return
+            big_sum = 0.0
+            if data['form']['date_from']:
+                if data['form']['result_selection'] == 'customer':
+                    partne_move_lines = self.env['account.move.line'].search(
+                        [('partner_id', '=', partner.id),
+                         ('account_id.internal_type', '=', 'receivable'),
+                         ('date', '<=', data['form']['date_from'])])
+                elif data['form']['result_selection'] == 'supplier':
+                    partne_move_lines = self.env['account.move.line'].search(
+                        [('partner_id', '=', partner.id),
+                         ('account_id.internal_type', '=', 'payable'),
+                         ('date', '<=', data['form']['date_from'])])
+                else:
+                    partne_move_lines = self.env['account.move.line'].search(
+                        [('partner_id', '=', partner.id),
+                         ('account_id.internal_type', 'in', ('receivable', 'payable')),
+                         ('date', '<=', data['form']['date_from'])])
+
+                for rec in partne_move_lines:
+                    if rec.debit > 0.0:
+                        big_sum += rec.debit
+                    else:
+                        big_sum -= rec.credit
+            return big_sum
+
         result = 0.0
         query_get_data = self.env['account.move.line'].with_context(data['form'].get('used_context', {}))._query_get()
         reconcile_clause = "" if data['form']['reconciled'] else ' AND "account_move_line".reconciled = false '
@@ -94,7 +132,7 @@ class report_general_ledger(models.AbstractModel):
             data['computed']['ACCOUNT_TYPE'] = ['receivable']
         else:
             data['computed']['ACCOUNT_TYPE'] = ['payable', 'receivable']
-        
+
         self.env.cr.execute("""
             SELECT a.id
             FROM account_account a
@@ -115,16 +153,18 @@ class report_general_ledger(models.AbstractModel):
                 AND NOT account.deprecated
                 AND """ + query_get_data[1] + reconcile_clause
         self.env.cr.execute(query, tuple(params))
-        
+
         partner_ids = [res['partner_id'] for res in self.env.cr.dictfetchall()]
         partners = partner_obj.browse(partner_ids)
         partners = sorted(partners, key=lambda x: (x.ref or '', x.name or ''))
+
+        x = self._line_big(data, partners)
         return {
             'doc_ids': self.ids,
             'doc_model': self.model,
             'data': data,
             'docs': partners,
             'lines': self._lines,
+            'line_big': self._line_big,
             'sum_partner': self._sum_partner,
         }
-        

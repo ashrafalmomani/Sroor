@@ -31,32 +31,37 @@
 								<th>JRNL</th>
 								<th>Account</th>
 								<th>Ref</th>
+								<th>Initial Balance</th>
 								<th>Debit</th>
 								<th>Credit</th>
 								<th>Balance</th>
 								<t t-if="data['form']['amount_currency']">
-								<th>Currency</th>
+									<th>Currency</th>
 								</t>
 							</tr>
 						</thead>
 						<tbody>
 							<t t-foreach='docs' t-as='o'>
 								<tr>
-									<td colspan="4">
+									<td colspan="4" style="border-bottom: 1px solid black;">
 										<strong t-esc="o.ref" />
 										-
 										<strong t-esc="o.name" />
 									</td>
-									<td class="text-right">
+									<td class="text-right" style="border-bottom: 1px solid black;">
+										<strong t-esc="sum_partner(data, o, '')"
+											t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}" />
+									</td>
+									<td class="text-right" style="border-bottom: 1px solid black;">
 										<strong t-esc="sum_partner(data, o, 'debit')"
 											t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}" />
 									</td>
-									<td class="text-right">
+									<td class="text-right" style="border-bottom: 1px solid black;">
 										<strong t-esc="sum_partner(data, o, 'credit')"
 											t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}" />
 									</td>
-									<td class="text-right">
-										<strong t-esc="sum_partner(data, o, 'debit - credit')"
+									<td class="text-right" style="border-bottom: 1px solid black;">
+										<strong t-esc="sum_partner(data, o, 'debit - credit') + sum_partner(data, o, '')"
 											t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}" />
 									</td>
 								</tr>
@@ -70,7 +75,7 @@
 									<td>
 										<span t-esc="line['a_code']" />
 									</td>
-									<td>
+									<td colspan="2">
 										<span t-esc="line['displayed_name']" />
 									</td>
 									<td class="text-right">

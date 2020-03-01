@@ -6,7 +6,7 @@ from odoo import fields, models
 class AccountPartnerLedger(models.TransientModel):
     _inherit = "account.report.partner.ledger"
 
-    partner_ids = fields.Many2many('res.partner', 'partner_ledger_partner_rel', 'id', 'partner_id', string='Partners')
+    partner_ids = fields.Many2many('res.partner', 'partner_ledger_partner_rel', 'id', 'partner_id', string='Partners', domain="[('is_company','=',True)]")
 
     def generate_partner_ledger(self, data):
         data = {}

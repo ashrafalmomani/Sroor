@@ -29,7 +29,7 @@ class AccountPartnerLedger(models.TransientModel):
                                         ('customer_supplier', 'Receivable and Payable Accounts')
                                       ], string="Partner's", required=True, default='customer')
     amount_currency = fields.Boolean("With Currency", help="It adds the currency column on report if the currency differs from the company currency.")
-    reconciled = fields.Boolean('Reconciled Entries')
+    reconciled = fields.Boolean('Reconciled Entries', default=True)
     date_from = fields.Date(string='Start Date')
     date_to = fields.Date(string='End Date')
     company_id = fields.Many2one('res.company', string='Company', readonly=True, default=lambda self: self.env.user.company_id)

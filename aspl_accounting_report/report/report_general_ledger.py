@@ -52,8 +52,11 @@ class report_general_ledger(models.AbstractModel):
         account_result = {}
         self.model = self.env.context.get('active_model')
         docs = self.env[self.model].browse(self.env.context.get('active_ids', []))
-        display_account = data['form'].get('display_account') 
-        accounts = self.env['account.account'].search([])
+        display_account = data['form'].get('display_account')
+        if docs.account_ids:
+            accounts = self.env['account.account'].search([('id', 'in', docs.account_ids.ids)])
+        else:
+            accounts = self.env['account.account'].search([])
         date_from = data.get('form') and data.get('form').get('date_from')
         date_to = data.get('form') and data.get('form').get('date_to')
         sortby = data['form'].get('sortby', 'sort_date')

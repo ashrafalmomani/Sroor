@@ -56,21 +56,24 @@ odoo.define("pos_lot_selection.models", function (require) {
             this.pos.get_lot(this.product.id, this.pos.config.stock_location_id[0])
                 .then(function (product_lot) {
                 var lot_name = [];
+                var lot_objects = [];
                 for (var i = 0; i < product_lot.length; i++) {
                     if (product_lot[i].qty >= pack_lot_lines.order_line.quantity) {
                         var date = new Date(product_lot[i].date);
                         date = date.getFullYear() +'-'+ date.getMonth()+'-'+ date.getDate();
-//                        lot_name.push("Name: " + product_lot[i].lot_name + " " + " , Qty: " + product_lot[i].qty + "  " + " , Date: " + date );
-                        lot_name.push("Name: " + product_lot[i].lot_name);
+                        let current_option={};
+                        lot_name.push(product_lot[i].lot_name);
+                        current_option['name']=product_lot[i].lot_name;
+                        current_option['qty']=product_lot[i].qty;
+                        lot_objects.push(current_option);
                     }
                 }
+                pack_lot_lines.lot_objects = lot_objects;
                 pack_lot_lines.lot_name = lot_name;
-//                done.resolve(pack_lot_lines);
             });
 
         return this.pack_lot_lines;
         },
-
     });
 
 var PackLotLinePopupWidget = PopupWidget.extend({
@@ -87,7 +90,7 @@ var PackLotLinePopupWidget = PopupWidget.extend({
     },
 
     click_confirm: function(){
-            var lot_name = ""
+            var lot_name = "";
             var pack_lot_lines = this.options.pack_lot_lines;
             this.$('.packlot-line-input').each(function(index, el){
                 var cid = $(el).attr('cid');

@@ -248,26 +248,6 @@ class SectionWizard(models.TransientModel):
 
         dental_id.operation_ids = operation_id and [(4, operation_id.id)] or False
         dental_id.current_section_id = self.section_id.id
-        user_id = self.env['res.users'].search([('groups_id', '=', self.env.ref('manufactoring_custom.manufacturing_group_manager').id)], limit=1, order="id desc")
-        self.env['mail.activity'].create({
-            'res_id': self.id,
-            'res_model_id': self.env['ir.model'].search([('model', '=', 'dental')], limit=1).id,
-            'activity_type_id': self.env.ref('mail.mail_activity_data_todo').id,
-            'summary': 'Test',
-            'note': 'test  %s',
-            'user_id': user_id.id,
-        })
-        template_id = self.env.ref('manufactoring_custom.send_email')
-        composer = self.env['mail.compose.message'].sudo().with_context({
-            'default_composition_mode': 'mass_mail',
-            'default_notify': False,
-            'default_model': 'section.wizard',
-            'default_res_id': self.id,
-            'default_template_id': template_id.id,
-        }).create({})
-        values = composer.onchange_template_id(template_id.id, 'mass_mail', 'section.wizard', self.id)['value']
-        composer.write(values)
-        composer.send_mail()
 
         if int(current_section.section_type) == 1:
             section_menu = 'manufactoring_custom.menu_manufacturing_orders_porcelain'

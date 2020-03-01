@@ -35,6 +35,17 @@
             </field>
         </record>
 
+        <record id="dental_search_view" model="ir.ui.view">
+            <field name="name">dental.search.form</field>
+            <field name="model">dental</field>
+            <field name="arch" type="xml">
+                <search string="Dental">
+                    <field name="number" string="Number"/>
+                    <field name="name" string="Sale Order"/>
+                </search>
+            </field>
+        </record>
+
         <!-- Order form-->
         <record id="dental_form_view" model="ir.ui.view">
             <field name="name">dental.form</field>
