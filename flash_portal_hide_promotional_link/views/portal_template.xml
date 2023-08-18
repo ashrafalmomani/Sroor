@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record model="ir.ui.view" id="portal_record_sidebar">
+        <field name="inherit_id" ref="portal.portal_record_sidebar"/>
+        <field name="arch" type="xml">
+            <xpath expr="//*[contains(@class, 'card-footer')]" position="attributes">
+                <attribute name="t-if">False</attribute>
+            </xpath>
+        </field>
+    </record>
+	 <record model="ir.ui.view" id="frontend_layout">
+        <field name="inherit_id" ref="portal.frontend_layout"/>
+        <field name="arch" type="xml">
+			<xpath expr="//*[contains(@class, 'float-right mb16')]" position="attributes">
+                <attribute name="t-if">False</attribute>
+            </xpath>
+        </field>
+    </record>
+</odoo>
